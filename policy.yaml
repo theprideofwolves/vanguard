@@ -1,0 +1,10 @@
+apiVersion: vanguard/v1
+kind: SecurityPolicy
+metadata:
+  name: default-baseline
+thresholds:
+  critical: 0
+  high: 2
+  medium: 10
+  low: -1
+  info: -1

@@ -1,0 +1,12 @@
+{
+    "tool": "snyk",
+    "target": "my-app:latest",
+    "findings": [
+        {
+            "id": "VULN-001",
+            "title": "SQL Injection",
+            "severity": "high",
+            "package_name": "database-driver"
+        }
+    ]
+}

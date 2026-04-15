@@ -1,0 +1,33 @@
+{
+  "tool": "snyk",
+  "target": "myapp:latest",
+  "findings": [
+    {
+      "id": "CVE-2024-0010",
+      "title": "High privilege escalation in libqux",
+      "severity": "high",
+      "package_name": "libqux",
+      "package_version": "3.1.0",
+      "cvss_score": 7.5,
+      "cve": "CVE-2024-0010"
+    },
+    {
+      "id": "CVE-2024-0020",
+      "title": "Medium XSS in libweb",
+      "severity": "medium",
+      "package_name": "libweb",
+      "package_version": "0.9.0",
+      "cvss_score": 5.4,
+      "cve": "CVE-2024-0020"
+    },
+    {
+      "id": "CVE-2024-0030",
+      "title": "Low info disclosure in libnet",
+      "severity": "low",
+      "package_name": "libnet",
+      "package_version": "4.0.1",
+      "cvss_score": 3.1,
+      "cve": "CVE-2024-0030"
+    }
+  ]
+}

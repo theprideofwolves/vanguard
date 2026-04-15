@@ -1,0 +1,41 @@
+# --- Binaries & Executables ---
+vanguard
+vanguard.exe
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# --- Planning & Blueprint (Internal Only) ---
+# We hide these to keep the focus on the final product
+spec.md
+*implementation_plan.md
+*plan.md
+notes/
+prompts/
+
+# --- Visuals Source ---
+# We hide the XML source; only the exported PNGs/SVGs go to GitHub
+assets/*.drawio
+!assets/*.png
+!assets/*.svg
+
+# --- Go Specifics ---
+vendor/
+*.test
+*.out
+coverage.txt
+
+# --- Logs & Temporary Files ---
+*.log
+tmp/
+temp/
+.DS_Store
+Thumbs.db
+
+# --- IDEs & Editors ---
+.vscode/
+.idea/
+*.swp
+*.swo
