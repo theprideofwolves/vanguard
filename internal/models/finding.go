@@ -3,6 +3,14 @@ package models
 // Severity represents the severity level of a security finding.
 type Severity string
 
+func ValidSeverity(s Severity) bool {
+	switch s {
+	case SeverityCritical, SeverityHigh, SeverityMedium, SeverityLow, SeverityInfo:
+		return true
+	}
+	return false
+}
+
 const (
 	SeverityCritical Severity = "critical"
 	SeverityHigh     Severity = "high"

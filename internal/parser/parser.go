@@ -19,11 +19,23 @@ func Parse(r io.Reader) (*models.Report, error) {
 		return nil, fmt.Errorf("parser: failed to decode report JSON: %w", err)
 	}
 
+	var extra any
+	if err := decoder.Decode(&extra); err != io.EOF {
+		return nil, fmt.Errorf("parser: expected one JSON report")
+	}
+	if report.Findings == nil {
+		return nil, fmt.Errorf("parser: findings array is required (use [] for no findings)")
+	}
+
 	// Normalize severity values to lowercase for consistent evaluation.
 	for i := range report.Findings {
 		report.Findings[i].Severity = models.Severity(
 			strings.ToLower(string(report.Findings[i].Severity)),
 		)
+
+		if !models.ValidSeverity(report.Findings[i].Severity) {
+			return nil, fmt.Errorf("parser: finding %d has unsupported severity %q", i, report.Findings[i].Severity)
+		}
 	}
 
 	return &report, nil

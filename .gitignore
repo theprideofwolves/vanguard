@@ -1,6 +1,6 @@
 # --- Binaries & Executables ---
-vanguard
-vanguard.exe
+/vanguard
+/vanguard.exe
 *.exe
 *.exe~
 *.dll

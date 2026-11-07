@@ -1,7 +1,9 @@
 package evaluator
 
 import (
+	"bytes"
 	"fmt"
+	"io"
 	"os"
 
 	"gopkg.in/yaml.v3"
@@ -11,9 +13,9 @@ import (
 // Policy represents a security policy loaded from a YAML configuration file.
 // It defines the maximum number of allowed findings per severity level.
 type Policy struct {
-	APIVersion string            `yaml:"apiVersion"`
-	Kind       string            `yaml:"kind"`
-	Metadata   PolicyMetadata    `yaml:"metadata"`
+	APIVersion string                  `yaml:"apiVersion"`
+	Kind       string                  `yaml:"kind"`
+	Metadata   PolicyMetadata          `yaml:"metadata"`
 	Thresholds map[models.Severity]int `yaml:"thresholds"`
 }
 
@@ -31,8 +33,15 @@ func LoadPolicy(path string) (*Policy, error) {
 	}
 
 	var policy Policy
-	if err := yaml.Unmarshal(data, &policy); err != nil {
+	decoder := yaml.NewDecoder(bytes.NewReader(data))
+	decoder.KnownFields(true)
+	if err := decoder.Decode(&policy); err != nil {
 		return nil, fmt.Errorf("evaluator: failed to parse policy YAML: %w", err)
+	}
+
+	var extra any
+	if err := decoder.Decode(&extra); err != io.EOF {
+		return nil, fmt.Errorf("evaluator: expected one YAML policy")
 	}
 
 	if policy.APIVersion == "" {
@@ -42,5 +51,16 @@ func LoadPolicy(path string) (*Policy, error) {
 		return nil, fmt.Errorf("evaluator: policy file is missing required field \"kind\"")
 	}
 
+	if policy.APIVersion != "vanguard/v1" || policy.Kind != "SecurityPolicy" {
+		return nil, fmt.Errorf("evaluator: unsupported policy version or kind")
+	}
+	if len(policy.Thresholds) == 0 {
+		return nil, fmt.Errorf("evaluator: at least one threshold is required")
+	}
+	for severity, limit := range policy.Thresholds {
+		if !models.ValidSeverity(severity) || limit < -1 {
+			return nil, fmt.Errorf("evaluator: invalid threshold %q=%d", severity, limit)
+		}
+	}
 	return &policy, nil
 }
