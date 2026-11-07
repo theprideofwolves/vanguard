@@ -6,8 +6,8 @@ import (
 	"io"
 	"os"
 
+	"github.com/theprideofwolves/vanguard/internal/models"
 	"gopkg.in/yaml.v3"
-	"vanguard/internal/models"
 )
 
 // Policy represents a security policy loaded from a YAML configuration file.
@@ -27,11 +27,22 @@ type PolicyMetadata struct {
 // LoadPolicy reads and parses a YAML policy file from disk.
 // It validates that the required apiVersion and kind fields are present.
 func LoadPolicy(path string) (*Policy, error) {
-	data, err := os.ReadFile(path)
+	f, err := os.Open(path)
 	if err != nil {
 		return nil, fmt.Errorf("evaluator: unable to read policy file %q: %w", path, err)
 	}
 
+	defer f.Close()
+	data, err := io.ReadAll(io.LimitReader(f, (1<<20)+1))
+	if err != nil {
+		return nil, err
+	}
+	return ParsePolicy(data)
+}
+func ParsePolicy(data []byte) (*Policy, error) {
+	if len(data) > 1<<20 {
+		return nil, fmt.Errorf("policy exceeds 1 MiB")
+	}
 	var policy Policy
 	decoder := yaml.NewDecoder(bytes.NewReader(data))
 	decoder.KnownFields(true)

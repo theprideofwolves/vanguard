@@ -2,7 +2,7 @@ package evaluator
 
 import (
 	"fmt"
-	"vanguard/internal/models"
+	"github.com/theprideofwolves/vanguard/internal/models"
 )
 
 // Verdict holds the result of evaluating a security report against a policy.

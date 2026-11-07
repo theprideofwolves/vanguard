@@ -1,64 +1,74 @@
 # Vanguard
-### Policy evaluation components for security findings
-A Go prototype that compares normalized JSON security findings against YAML severity thresholds and produces a consistent pass/fail summary.
 
-## What I built
-- File and stdin reader components for normalized reports.
-- JSON parsing with lowercase severity normalization.
-- YAML policy loading and per-severity finding counts.
-- Threshold evaluation with explicit policy violations.
-- A table reporter with a fixed severity order and sample pass/fail reports.
+A small Go policy gate: normalized findings + YAML thresholds -> explained
+pass/fail decision. It does not scan vulnerabilities or certify compliance.
 
-## Architecture
-`normalized JSON -> parser -> finding counts + YAML policy -> verdict -> table reporter`
+## Two workflows
+1. Local UI: double-click, inspect the synthetic example, replace the report
+and policy, evaluate, and download a decision JSON.
+2. CI: run the same evaluation with explicit exit codes and optional Slack.
 
-The internal packages are connected by `cmd/vanguard`. The CLI returns 0 for PASS, 1 for a policy violation, and 2 for invalid input or configuration.
-
-![Architecture](assets/architecture.png)
-
-## Inspect the components
-Requires Go 1.25.5 or newer, matching `go.mod`.
-
-```bash
-git clone https://github.com/theprideofwolves/vanguard.git
-cd vanguard
-go mod download
-go build ./...
 ```
-
-Build a runnable CLI with `go build -o vanguard ./cmd/vanguard`, then run `./vanguard -p policy.yaml testdata/report-pass.json` (Windows: build `vanguard.exe` and run `.\vanguard.exe`).
-
-| Package | Role |
-| --- | --- |
-| `internal/reader` | Open a file or stdin |
-| `internal/parser` | Decode the normalized report and lowercase severities |
-| `internal/models` | Report, finding, and severity types |
-| `internal/evaluator` | Load YAML policy, count findings, return verdict |
-| `internal/reporter` | Print severity table and violations |
-
-## Policy example
-```yaml
-apiVersion: vanguard/v1
-kind: SecurityPolicy
-metadata:
-  name: default-baseline
-thresholds:
-  critical: 0
-  high: 2
-  medium: 10
-  low: -1
-  info: -1
+vanguard -p policy.yaml report.json
+vanguard -p policy.yaml -json report.json
+vanguard -p policy.yaml -json -notify report.json
+vanguard -p policy.yaml -json -
 ```
+No arguments opens the UI; `-` reads stdin explicitly. Reports are capped at
+16 MiB and policies at 1 MiB. Input is a normalized report, not arbitrary native
+Trivy/Snyk output. See testdata and policy.yaml. Exactly equal counts pass.
+Omitted thresholds and -1 are unlimited. Exact duplicate normalized finding
+objects are rejected; distinct locations/occurrences count separately. Unknown
+severity, invalid/null findings, multiple documents and invalid policy fields fail.
 
-A count greater than its threshold fails evaluation. A threshold of `-1`, or an omitted threshold, is unlimited. Review `testdata/report-pass.json` and `testdata/report-fail.json` for sample inputs.
+Decision JSON includes policy/input SHA256 hashes, UTC time, policy name,
+observed counts, limits, violations, and schema version. Hashes identify input;
+they do not prove it was genuine or complete. An empty array passes applicable
+thresholds but does not establish that a scanner actually ran successfully.
+Session results are not persisted: export before closing.
 
-## Current scope
-Input must follow the repository's normalized `Report` schema. Direct Snyk/Trivy adapters and automated remediation are not implemented. The parser rejects unknown severities, missing findings arrays, and extra JSON documents. Policy loading rejects unsupported schema versions/kinds, unknown YAML fields, invalid thresholds, empty thresholds, and multiple policy documents. A CI stage can invoke the built binary to use its exit code.
+Exit 0: pass. Exit 1: policy violation. Exit 2: invalid input/configuration,
+read/write failure, or tool error. CLI stdout is JSON only when -json is selected.
 
-## Resume bullets
-- Implemented Go components that parse normalized JSON security findings, normalize severity values, and evaluate finding counts against YAML policy thresholds.
-- Built deterministic severity summaries and policy-violation reporting, with sample pass/fail inputs for a security pipeline gate prototype.
+## Slack (optional CLI feature)
+Set VANGUARD_SLACK_WEBHOOK in the process environment; never commit it.
+Use -notify to send a failure-only summary. Optional VANGUARD_RUN_URL must be
+an HTTPS CI-run link. Only the policy hash and generic failure/run information
+are sent, not finding descriptions or source. Official Slack/GovSlack webhook
+origins only; redirects disabled; no automatic retries after uncertain delivery.
+A notification failure is printed to stderr and never changes the policy verdict.
+Successes are silent. See examples/github-action.yml for preserving exit status
+while retaining the JSON report as an artifact.
 
+## Installation and privacy
+Download the platform ZIP from GitHub Releases and extract it. On Windows,
+double-click the executable. On Linux, run the binary; if no desktop opener is
+installed, copy the printed localhost URL into a browser. No development tools,
+Docker, database server, or paid API is needed for the offline workflow.
+The executable is unsigned: OS warnings are possible. Close the application with
+Ctrl+C in its console. Closing the browser does not stop it.
 
-## Interview demonstration and verification
-See [INTERVIEW.md](INTERVIEW.md) for a walkthrough, expected results, design decisions, and limitations. Run `go test ./...`, `go vet ./...`, and `go build ./...`. GitHub Actions also runs the race detector on Linux.
+The server binds to an ephemeral localhost port and uses a private per-launch
+token, exact Host and Origin checks, CSP, HTML escaping and request limits.
+Single-user OS trust boundary: no roles or enterprise multi-tenancy. Local
+privileged processes can read memory and data. Do not expose it to a network.
+No telemetry, background uploads, automatic remediation or AI dependency.
+
+Data defaults to the OS user configuration directory / application name.
+Set PORTFOLIO_DATA_DIR to change its parent; PORTFOLIO_NO_BROWSER=1 suppresses
+browser opening. Only one launcher may use a data directory. After a crash,
+confirm the process has stopped before removing application.lock.
+Stop the app before backup/restore. Replace executables to upgrade; user data
+stays separate. Uninstall by deleting extracted binaries; delete the data
+directory separately only if you intend to remove history.
+
+## Release verification
+CI runs unit/integration tests, race detection, vet, and builds on Windows/Linux.
+Version tags publish portable ZIPs and SHA256 checksums after tests pass.
+Dependency metadata is included using go version -m; it is not a full license
+inventory or a signed supply-chain attestation. No unsupported scale or
+enterprise-certification claim is made.
+
+## Developer checks
+`go test -race ./...`, `go vet ./...`, `go build ./cmd/vanguard`.
+See architecture.md, interviewprep.md and explaining-each-decision-taken-over-others.md.

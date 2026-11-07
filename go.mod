@@ -1,4 +1,4 @@
-module vanguard
+module github.com/theprideofwolves/vanguard
 
 go 1.25.5
 

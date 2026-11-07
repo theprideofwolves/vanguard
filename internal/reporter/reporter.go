@@ -5,8 +5,8 @@ import (
 	"io"
 	"text/tabwriter"
 
-	"vanguard/internal/evaluator"
-	"vanguard/internal/models"
+	"github.com/theprideofwolves/vanguard/internal/evaluator"
+	"github.com/theprideofwolves/vanguard/internal/models"
 )
 
 // PrintTable writes a human-readable severity breakdown to w.

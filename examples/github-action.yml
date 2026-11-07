@@ -1,0 +1,18 @@
+# Copy into the consuming repository and adjust input artifact generation.
+# vanguard must be installed from a verified release before this step.
+steps:
+  - name: Evaluate policy and preserve gate status
+    shell: bash
+    env:
+      VANGUARD_SLACK_WEBHOOK: ${{ secrets.VANGUARD_SLACK_WEBHOOK }}
+      VANGUARD_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    run: |
+      set +e
+      vanguard -p policy.yaml -json -notify report.json > decision.json
+      code=$?
+      exit "$code"
+  - uses: actions/upload-artifact@v4
+    if: always()
+    with:
+      name: policy-decision
+      path: decision.json
