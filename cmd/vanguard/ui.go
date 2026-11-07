@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"github.com/theprideofwolves/vanguard/internal/desktop"
 	"github.com/theprideofwolves/vanguard/internal/gate"
+	"github.com/theprideofwolves/vanguard/internal/onboarding"
 	"html/template"
 	"io"
 	"net/http"
@@ -19,13 +20,15 @@ func launchUI() error {
 	if e != nil {
 		return e
 	}
-	return desktop.Serve("Vanguard", dir, func(token string) http.Handler { return newUI(token) })
+	return desktop.Serve("Vanguard", dir, func(token string) http.Handler { return newUIAt(token, dir) })
 }
-func newUI(token string) http.Handler {
+func newUI(token string) http.Handler { return newUIAt(token, "") }
+func newUIAt(token, dir string) http.Handler {
+	guide := onboarding.New(onboarding.Config{Name: "Vanguard", Token: token, Dir: dir, Intro: "Turn a normalized findings report into a clear policy decision.", Expected: "The example intentionally FAILS: one critical finding exceeds the allowed zero. A failed policy is a successful evaluation, not a broken app.", Next: "Download the decision, then use your own report or follow the CI instructions below.", Steps: []string{"Core evaluation works offline; no accounts are required.", "Download the example report and policy to learn the supported format. Native scanner reports need normalization first.", "In the workspace upload your JSON or paste it, review the thresholds, and evaluate.", "Optional Slack is a CLI feature; configure VANGUARD_SLACK_WEBHOOK privately. This guide never sends Slack messages."}, Multipart: true, DemoFields: map[string]string{"policy": samplePolicy, "report": sampleReport}, Samples: []onboarding.Sample{{Name: "report.json", Content: sampleReport}, {Name: "policy.yaml", Content: samplePolicy}}})
 	var mu sync.Mutex
 	var decision *gate.Decision
-	tmpl := template.Must(template.New("page").Parse(strings.ReplaceAll(vanguardHTML, "{{.Style}}", desktop.Style)))
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+	tmpl := template.Must(template.New("page").Funcs(template.FuncMap{"onboarding": guide.Panel}).Parse(strings.ReplaceAll(vanguardHTML, "{{.Style}}", desktop.Style)))
+	return guide.Wrap(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		mu.Lock()
 		defer mu.Unlock()
 		message := ""
@@ -67,7 +70,8 @@ func newUI(token string) http.Handler {
 				message = e.Error()
 			} else {
 				decision = d
-				message = "Decision complete. Demo input is synthetic; replace it with your normalized report."
+				guide.Complete()
+				message = "Evaluation finished. Review each observed count against its limit below, then download the decision. FAIL means a threshold was exceeded; your evaluation still completed successfully."
 			}
 			if len(report) > 16<<20 {
 				report = ""
@@ -80,7 +84,7 @@ func newUI(token string) http.Handler {
 			Token, Style, Message, Policy, Report string
 			Decision                              *gate.Decision
 		}{token, desktop.Style, message, policy, report, decision})
-	})
+	}))
 }
 
-const vanguardHTML = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vanguard</title><style>{{.Style}}</style><h1>Vanguard</h1><p>A transparent security policy decision for your CI workflow.</p><p class="notice">Counts normalized findings against severity limits. Does not discover vulnerabilities or certify compliance. Omitted thresholds are unlimited. Exact duplicate finding objects are rejected; distinct occurrences count separately.</p>{{if .Message}}<p role="status">{{.Message}}</p>{{end}}<section><h2>Evaluate a report</h2><form method="post" enctype="multipart/form-data" action="/?token={{.Token}}"><label>Policy YAML<textarea name="policy" rows="10">{{.Policy}}</textarea></label><label>Normalized report JSON (synthetic example)<textarea name="report">{{.Report}}</textarea></label><label>Or upload a JSON report (replaces text)<input type="file" name="reportfile" accept=".json"></label><button>Evaluate policy</button></form></section>{{if .Decision}}<section><h2>{{if .Decision.Passed}}PASS{{else}}FAIL{{end}}</h2><table><tr><th>Severity</th><th>Observed</th><th>Allowed</th><th>Exceeded</th></tr>{{range .Decision.Rows}}<tr><td>{{.Severity}}</td><td>{{.Observed}}</td><td>{{if .Limited}}{{.Allowed}}{{else}}unlimited{{end}}</td><td>{{.Exceeded}}</td></tr>{{end}}</table><p>Policy: {{.Decision.PolicyName}}</p><small>Policy SHA256: {{.Decision.PolicyHash}}<br>Input SHA256: {{.Decision.InputHash}}</small><p><a href="/export?token={{.Token}}">Download decision JSON</a></p></section>{{end}}<section><h2>Use in CI</h2><pre>vanguard -p policy.yaml -json report.json</pre><p>Exit 0: pass. Exit 1: policy violation. Exit 2: tool/input/output failure. Optional <code>-notify</code> sends a failure-only Slack summary using VANGUARD_SLACK_WEBHOOK. Slack failure never changes the policy verdict. No source, finding descriptions, or credentials are sent. A run URL can be configured through VANGUARD_RUN_URL.</p></section><small>Session results are not saved. Export before closing. No internet is required for evaluation. Ctrl+C in the launcher stops the app.</small></html>`
+const vanguardHTML = `<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vanguard</title><style>{{.Style}}</style><h1>Vanguard</h1>{{onboarding}}<p>A transparent security policy decision for your CI workflow.</p><p class="notice">Counts normalized findings against severity limits. Does not discover vulnerabilities or certify compliance. Omitted thresholds are unlimited. Exact duplicate finding objects are rejected; distinct occurrences count separately.</p>{{if .Message}}<p role="status">{{.Message}}</p>{{end}}<section><h2>Evaluate a report</h2><form method="post" enctype="multipart/form-data" action="/?token={{.Token}}"><label>Policy YAML<textarea name="policy" rows="10">{{.Policy}}</textarea></label><label>Normalized report JSON<textarea name="report">{{.Report}}</textarea></label><label>Or upload a JSON report (replaces text)<input type="file" name="reportfile" accept=".json"></label><button>Evaluate policy</button></form></section>{{if .Decision}}<section id="results"><h2>{{if .Decision.Passed}}PASS{{else}}FAIL{{end}}</h2><table><tr><th>Severity</th><th>Observed</th><th>Allowed</th><th>Exceeded</th></tr>{{range .Decision.Rows}}<tr><td>{{.Severity}}</td><td>{{.Observed}}</td><td>{{if .Limited}}{{.Allowed}}{{else}}unlimited{{end}}</td><td>{{.Exceeded}}</td></tr>{{end}}</table><p>Policy: {{.Decision.PolicyName}}</p><small>Policy SHA256: {{.Decision.PolicyHash}}<br>Input SHA256: {{.Decision.InputHash}}</small><p><a href="/export?token={{.Token}}">Download decision JSON</a></p></section>{{end}}<section><h2>Use in CI</h2><pre>vanguard -p policy.yaml -json report.json</pre><p>Exit 0: pass. Exit 1: policy violation. Exit 2: tool/input/output failure. Optional <code>-notify</code> sends a failure-only Slack summary using VANGUARD_SLACK_WEBHOOK. Slack failure never changes the policy verdict. No source, finding descriptions, or credentials are sent. A run URL can be configured through VANGUARD_RUN_URL.</p></section><small>Session results are not saved. Export before closing. No internet is required for evaluation. Ctrl+C in the launcher stops the app.</small></html>`

@@ -11,7 +11,7 @@ import (
 func TestUIEvaluationAndExport(t *testing.T) {
 	h := newUI("token")
 	w := httptest.NewRecorder()
-	h.ServeHTTP(w, httptest.NewRequest("GET", "http://localhost/", nil))
+	h.ServeHTTP(w, httptest.NewRequest("GET", "http://localhost/?token=token", nil))
 	if !strings.Contains(w.Body.String(), "background:#0b1627") {
 		t.Fatal("CSS not rendered")
 	}
@@ -20,7 +20,7 @@ func TestUIEvaluationAndExport(t *testing.T) {
 	f.WriteField("policy", samplePolicy)
 	f.WriteField("report", sampleReport)
 	f.Close()
-	r := httptest.NewRequest("POST", "http://localhost/", &b)
+	r := httptest.NewRequest("POST", "http://localhost/?token=token", &b)
 	r.Header.Set("Content-Type", f.FormDataContentType())
 	w = httptest.NewRecorder()
 	h.ServeHTTP(w, r)
@@ -28,7 +28,7 @@ func TestUIEvaluationAndExport(t *testing.T) {
 		t.Fatal(w.Body.String())
 	}
 	w = httptest.NewRecorder()
-	h.ServeHTTP(w, httptest.NewRequest("GET", "http://localhost/export", nil))
+	h.ServeHTTP(w, httptest.NewRequest("GET", "http://localhost/export?token=token", nil))
 	if !strings.Contains(w.Body.String(), "PolicyHash") {
 		t.Fatal(w.Body.String())
 	}
