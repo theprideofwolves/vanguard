@@ -7,11 +7,12 @@ import (
 	"github.com/theprideofwolves/vanguard/internal/models"
 	"io"
 	"strings"
+	"unicode"
 )
 
 // Parse reads JSON from r and decodes it into a models.Report.
-// It uses json.Decoder for streaming so that large files are not
-// buffered entirely in memory before decoding begins.
+// It retains a capped report in memory, validates keys and schema, and normalizes
+// severity values before checking for identical finding objects.
 func Parse(r io.Reader) (*models.Report, error) {
 	var report models.Report
 
@@ -84,6 +85,18 @@ func uniqueKeys(d *json.Decoder) error {
 			if !ok {
 				return fmt.Errorf("object key must be a string")
 			}
+			// encoding/json matches struct fields case-insensitively, including
+			// Unicode simple folds. Use the same equivalence for duplicate keys
+			// so a case variant cannot overwrite a previously validated field.
+			name = strings.Map(func(r rune) rune {
+				canonical := r
+				for next := unicode.SimpleFold(r); next != r; next = unicode.SimpleFold(next) {
+					if next < canonical {
+						canonical = next
+					}
+				}
+				return canonical
+			}, name)
 			if seen[name] {
 				return fmt.Errorf("duplicate JSON object key")
 			}

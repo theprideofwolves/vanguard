@@ -3,9 +3,23 @@ package desktop
 import (
 	"net/http"
 	"net/http/httptest"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 )
+
+func TestVanguardDataDirectoryOverride(t *testing.T) {
+	parent := t.TempDir()
+	t.Setenv("VANGUARD_DATA_DIR", parent)
+	dir, err := DataDir("Vanguard")
+	if err != nil || dir != filepath.Join(parent, "Vanguard") {
+		t.Fatal(dir, err)
+	}
+	if info, err := os.Stat(dir); err != nil || !info.IsDir() {
+		t.Fatal("data directory not created", err)
+	}
+}
 
 func TestRequestBoundaries(t *testing.T) {
 	for _, tc := range []struct {

@@ -18,14 +18,17 @@ No arguments opens the UI; `-` reads stdin explicitly. Reports are capped at
 16 MiB and policies at 1 MiB. Input is a normalized report, not arbitrary native
 Trivy/Snyk output. See testdata and policy.yaml. Exactly equal counts pass.
 Omitted thresholds and -1 are unlimited. Exact duplicate normalized finding
-objects are rejected; distinct locations/occurrences count separately. Unknown
+objects are rejected; distinct normalized finding objects count separately. Unknown
 severity, invalid/null findings, multiple documents and invalid policy fields fail.
+Ambiguous duplicate JSON keys are rejected even when their casing differs.
 
 Decision JSON includes policy/input SHA256 hashes, UTC time, policy name,
 observed counts, limits, violations, and schema version. Hashes identify input;
 they do not prove it was genuine or complete. An empty array passes applicable
 thresholds but does not establish that a scanner actually ran successfully.
 Session results are not persisted: export before closing.
+Larger file uploads can use OS temporary files during the request; those files
+are removed after processing. Reports are not saved as application history.
 
 Exit 0: pass. Exit 1: policy violation. Exit 2: invalid input/configuration,
 read/write failure, or tool error. CLI stdout is JSON only when -json is selected.
@@ -33,7 +36,7 @@ read/write failure, or tool error. CLI stdout is JSON only when -json is selecte
 ## Slack (optional CLI feature)
 Set VANGUARD_SLACK_WEBHOOK in the process environment; never commit it.
 Use -notify to send a failure-only summary. Optional VANGUARD_RUN_URL must be
-an HTTPS CI-run link. Only the policy hash and generic failure/run information
+an HTTPS CI-run link. Only the policy hash, exceeded severity counts/limits and run information
 are sent, not finding descriptions or source. Official Slack/GovSlack webhook
 origins only; redirects disabled; no automatic retries after uncertain delivery.
 A notification failure is printed to stderr and never changes the policy verdict.
@@ -54,13 +57,13 @@ Single-user OS trust boundary: no roles or enterprise multi-tenancy. Local
 privileged processes can read memory and data. Do not expose it to a network.
 No telemetry, background uploads, automatic remediation or AI dependency.
 
-Data defaults to the OS user configuration directory / application name.
-Set PORTFOLIO_DATA_DIR to change its parent; PORTFOLIO_NO_BROWSER=1 suppresses
-browser opening. Only one launcher may use a data directory. After a crash,
-confirm the process has stopped before removing application.lock.
-Stop the app before backup/restore. Replace executables to upgrade; user data
-stays separate. Uninstall by deleting extracted binaries; delete the data
-directory separately only if you intend to remove history.
+The OS user configuration directory / Vanguard stores only the guide preference
+and launcher lock. VANGUARD_DATA_DIR changes its parent; VANGUARD_NO_BROWSER=1
+suppresses automatic browser opening. Only one launcher may use that directory.
+After a crash, confirm the process stopped before removing application.lock.
+Upgrades replace extracted binaries. Uninstall by deleting those files; remove
+the Vanguard data directory separately if you also want to reset guide progress.
+Vanguard has no saved decision history or database to restore.
 
 ## Release verification
 CI runs unit/integration tests, race detection, vet, and builds on Windows/Linux.
@@ -73,28 +76,26 @@ enterprise-certification claim is made.
 `go test -race ./...`, `go vet ./...`, `go build ./cmd/vanguard`.
 See architecture.md, interviewprep.md and explaining-each-decision-taken-over-others.md.
 
-## Guided first run (v1.2.0)
+## Guided first run
 
-On a new installation, choose **Try the guided demo** or **Use my data**.
-The demo runs offline and explains its expected result. Setup checks are separate
-from scans/evaluations and never create tickets. After a successful task, the
-workspace shows the next step and remembers guide completion in onboarding.json.
-That file contains only a version and completion flag, never credentials.
-Use **Restart the guide** at any time; it does not reset existing reports.
-**Continue to existing workspace** opens saved work without rerunning a task.
+Choose **Try the guided demo** or **Use my data**. The offline demo intentionally
+FAILS: one critical finding exceeds the allowed zero. FAIL is a valid policy
+decision, not an application error. The guide completes after any valid
+evaluation, whether PASS or FAIL. Invalid input does not mark completion.
 
-Jira-enabled tools offer a read-only sign-in check against /rest/api/3/myself.
-This verifies authentication only, not project creation/comment permissions.
-The check does not retain email/API tokens. Re-enter credentials when sending
-a reviewed finding. The AWS setup check in S3 Auditor verifies account identity
-only; it does not claim bucket access is verified.
+Setup offers a normalized JSON report and YAML policy download. Paste your
+report or upload it in the workspace, review the policy thresholds, and evaluate.
+There are no accounts, credentials or connection checks for local evaluation.
+The browser workflow never sends Slack notifications.
 
-CredDrift offers an explicit native folder picker, a readability check, and
-transfer of the selected path into the scan form. On Linux the optional picker
-uses zenity; if unavailable, paste an absolute path instead. Vanguard and LogFlow
-offer downloadable example inputs. Vanguard evaluation needs no connection;
-optional Slack remains a CLI feature and this guide never sends Slack messages.
+Only the version/completion flag is saved in onboarding.json. **Restart the
+guide** and **Return to workspace** preserve the current session decision.
+Decisions and report/policy inputs do not survive application restart; export
+before closing. Invalid evaluations clear the previous decision to avoid a
+stale export. Missing/corrupt guide preferences show the guide again; a progress
+save failure is displayed without discarding the current valid decision.
 
-A corrupt/missing guide-preference file shows the guide again without changing
-application results. If progress cannot be saved, the guide says so; exports and
-existing domain data are not discarded. Setup is single-user and local.
+Portable ZIPs include policy.yaml, passing/failing reports under testdata, and
+examples/github-action.yml for trying CLI evaluation and adapting a CI step.
+The CI example expects a verified Vanguard binary already on PATH and a report
+normalized by your own upstream process.

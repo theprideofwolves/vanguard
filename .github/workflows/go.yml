@@ -19,7 +19,7 @@ jobs:
       - run: go test -race -count=1 ./...
       - run: go build -trimpath -o dist/vanguard${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/vanguard
       - name: Packaged workflow smoke test
-        run: python .github/scripts/smoke.py vanguard dist/vanguard${{ runner.os == 'Windows' && '.exe' || '' }}
+        run: python .github/scripts/smoke.py dist/vanguard${{ runner.os == 'Windows' && '.exe' || '' }}
       - uses: actions/upload-artifact@v4
         with:
           name: vanguard-${{ runner.os }}
@@ -44,6 +44,10 @@ jobs:
             GOOS=$os GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -o "package-$os/vanguard$ext" ./cmd/vanguard
             go version -m "package-$os/vanguard$ext" > "package-$os/dependencies.txt"
             cp README.md RELEASE.md architecture.md interviewprep.md explaining-each-decision-taken-over-others.md "package-$os/"
+            cp policy.yaml "package-$os/"
+            mkdir -p "package-$os/testdata" "package-$os/examples"
+            cp testdata/report-pass.json testdata/report-fail.json "package-$os/testdata/"
+            cp examples/github-action.yml "package-$os/examples/"
             (cd "package-$os" && zip -r "../release/vanguard-$os-x64.zip" .)
           done
           (cd release && sha256sum *.zip > SHA256SUMS)

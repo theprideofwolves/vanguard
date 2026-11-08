@@ -1,61 +1,54 @@
 # Vanguard: interview study guide
 
 ## Explain it in 30 seconds
-Describe the two capabilities in README, show one input and its actual output,
-then state one limitation. Do not imply enterprise deployment or real users.
 
-## Two-minute walkthrough
-Trace launcher/CLI, validation, core logic, persistence/export and the explicit
-integration. Follow the functions named in architecture.md using actual source.
-Identify what is local, what is transmitted and which errors preserve old state.
+Vanguard accepts a normalized findings report and YAML severity thresholds,
+validates them, and produces an explained PASS/FAIL decision for local review or
+CI. The CLI has distinct policy-failure and tool-error exit codes. Optional Slack
+reports failures without changing the verdict. Vanguard does not scan source
+code, discover vulnerabilities, or certify compliance.
 
-## Five-minute demo
-Launch the packaged binary; run the synthetic example; show the explanation and
-export. Demonstrate one failure. Explain what has and has not been tested live.
+## Trace the implementation
 
-## Questions to practice
-1. Why this input schema, and what is rejected?
-2. What is the exact boundary condition for a decision or status change?
-3. How are memory/concurrency bounded? Where could performance degrade?
-4. What happens after cancellation, read failure or disk-write failure?
-5. Which evidence is enough to support a conclusion, and which is not?
-6. What does a passing automated test establish about a live provider?
-7. Why not add ServiceNow, AI, or multi-tenancy immediately?
-8. How would you test migration and backup restore safely?
-9. How do local authorization and credential handling work?
-10. Explain a duplicate external write and why local transactions cannot prevent it alone.
+Follow main.go or ui.go into gate.Evaluate, ParsePolicy, parser.Parse and
+evaluator.Evaluate. Trace the fixed severity order into decision rows, exact-byte
+hashes, JSON export and CLI exit status. Then trace Notify separately.
 
-## Exercises
-Read the feature tests and predict a boundary-case output before running them.
-Introduce a failing test, explain its cause, repair it, and demonstrate the result.
-Reproduce the packaged demo on a machine without Go. Explain every limitation
-listed in README rather than memorizing a marketing description.
+## Questions and grounded answers
 
-## Honest contribution statement
-I used AI-assisted development to extend an existing Go tool, reviewed the
-workflow and implementation, and validated defined cases with automated tests.
-Replace this with specific actions you actually performed and can demonstrate.
-Documentation supports study; it cannot guarantee absence of knowledge gaps.
+1. What is normalized? Findings follow internal/models/finding.go. Native scanner
+   conversion must happen upstream; severity text is lowercased here.
+2. When does a threshold fail? Observed count > allowed. Equal counts pass.
+   Omitted thresholds and -1 are unlimited; at least one threshold is required.
+3. Why reject duplicates? Identical normalized finding objects can double-count
+   accidental input duplication. Distinct modeled finding objects count separately;
+   this is not CVE deduplication across different scanners or an occurrence-ID system.
+4. Why reject unknown fields/severities? Silently ignored input could hide a
+   schema mismatch or let an unsupported severity escape the fixed counting loop.
+5. What do hashes prove? Exact input/policy bytes can be identified. They do not
+   prove report authenticity, successful scanning, completeness or tamper resistance.
+6. What does an empty report prove? It passes applicable thresholds. It does not
+   prove the upstream scanner succeeded; CI must check upstream execution separately.
+7. Why does the demo FAIL? It deliberately exceeds critical:0. Evaluation worked;
+   FAIL completes onboarding, whereas malformed input does not.
+8. What persists? Only guide completion and the launcher lock. Current decisions
+   and inputs live in memory; invalid evaluation clears the old decision and restart
+   starts a new session. Export before closing if evidence is needed.
+   Large uploaded files may be staged in temporary storage during the request
+   and removed by multipart cleanup; there is no saved report history.
+9. What goes to Slack? Policy hash, exceeded severity counts/limits, generic failure
+   text and optional run URL. No source/findings descriptions or credentials.
+   The webhook itself is a secret and must be supplied privately by CI.
+10. What if Slack fails? Stderr reports failure, the computed verdict/exit status
+    stays unchanged, and there is no blind delivery retry or exactly-once claim.
 
-## Onboarding design and study notes
+## Practice with source
 
-The internal/onboarding package owns the welcome/setup routes, escaped progress
-panel, declared non-secret session fields, and a versioned completion preference.
-Core handlers explicitly call Complete only after a successful domain operation.
-A failing policy evaluation is still a successful task; a partial LogFlow report
-is not marked complete. Guide status is not a security/compliance conclusion.
+Read policy_test.go, gate_test.go and the CLI/UI tests. Predict equality and
+one-above-limit cases, a missing severity, a duplicate record, malformed input
+after a valid decision and a failed notification. Compare the exported hashes
+with the exact input bytes. Use the packaged CLI to demonstrate 0/1/2 exits.
+examples/github-action.yml is a reusable step fragment, not an installed CI pipeline.
 
-GET/sample/setup routes do not run scans or create tickets. POST setup checks
-use bounded read-only requests; Jira identity is not project authorization. Native
-folder selection is explicit, bounded and has a manual fallback. Preflight checks
-never store tokens, and Jira checks preserve previously selected local fields.
-
-Why not a JS tour library? Server-rendered forms and a small guide keep packaging
-light, work offline and are keyboard accessible. Each independent repository
-contains its own internal copy and tests; no cross-project service is required.
-That trades centralized updates for simpler standalone distribution.
-
-Practice: explain a fresh launch, a failed check, a successful demo, persistence
-after restart, and why restarting the guide cannot delete assessment data. Read
-onboarding_test.go and the packaged smoke script to distinguish a connection
-check from an end-to-end live integration test.
+Describe AI assistance honestly and explain the source/tests you personally
+reviewed. Do not claim measured production impact or real deployment without evidence.

@@ -32,6 +32,18 @@ func TestBadInput(t *testing.T) {
 	}
 }
 
+func TestRejectAmbiguousJSONFieldCasing(t *testing.T) {
+	for _, input := range []string{
+		`{"findings":[{"severity":"critical"}],"Findings":[]}`,
+		`{"findings":[{"severity":"critical","Severity":"low"}]}`,
+		`{"findings":[{"severity":"critical","ſeverity":"low"}]}`,
+	} {
+		if d, err := Evaluate([]byte(input), []byte(policy)); err == nil {
+			t.Fatalf("ambiguous field casing accepted: %s -> %+v", input, d)
+		}
+	}
+}
+
 type transport func(*http.Request) (*http.Response, error)
 
 func (f transport) RoundTrip(r *http.Request) (*http.Response, error) { return f(r) }
