@@ -1,4 +1,4 @@
-# Vanguard v1.3.0 — local release candidate
+# Vanguard v1.3.0 — source release candidate
 
 Policy-change impact analysis adds review of current/proposed severity limits and
 per-report verdict transitions. It identifies newly passing reports, including
@@ -20,7 +20,8 @@ CI step fragments, testing instructions and interview/architecture notes. The
 workflow is configured for Windows/Linux; local verification is Windows unless
 TESTING-NOTES.md records otherwise. Builds are unsigned.
 
-This version is not published by this local change. Unit/integration/race/fuzz and
+No binary release is published by these source changes. Recorded verification is
+linked from README.md; raw evidence and methodology are included under docs/. Unit/integration/race/fuzz and
 packaged smoke checks provide bounded evidence, not exhaustive coverage or proof
 of enterprise readiness. Human UI/accessibility, clean-machine launch, live Slack
 and sustained performance remain separate checks. Vanguard is a normalized policy

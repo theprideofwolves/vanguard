@@ -1,0 +1,6 @@
+github-action.yml: exit 0 and artifact verified
+github-action.yml: exit 1 and artifact verified
+github-action.yml: exit 2 and artifact verified
+github-policy-review.yml: exit 0 and artifact verified
+github-policy-review.yml: exit 1 and artifact verified
+github-policy-review.yml: exit 2 and artifact verified

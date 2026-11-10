@@ -4,6 +4,12 @@ A Go security policy gate with **policy-change impact analysis**. Evaluate norma
 JSON findings against YAML limits, then see which reports would change verdict
 under a proposed policy. **It does not scan vulnerabilities or certify compliance.**
 
+**Recorded verification:** 85.5% whole-project statement coverage and 3,072 seeded
+reference-model cases. A 10,000-finding synthetic report took **71.9 ms median**
+for in-process parsing/evaluation/hashing (five samples, Windows 11, Ryzen 9 5980HX,
+Go 1.25.5). [Full results and raw evidence](docs/verification/2026-11-10-windows/RESULTS.md)
+include functional checks, fuzz runs, allocations and measurement limits.
+
 ## Try it
 
 Build with **Go 1.25.5+**. The commands below use Windows; on Linux build
@@ -68,5 +74,6 @@ go vet ./...
 python .github/scripts/smoke.py ./vanguard.exe
 ```
 
+To reproduce the full report: `python .github/scripts/verify.py --output tmp/verification-review`.
 Tests use synthetic data and mocked Slack. [Testing/manual checklist](TESTING.md) ·
 [Architecture](architecture.md) · [Interview guide](interviewprep.md)

@@ -29,6 +29,7 @@ vendor/
 *.test
 *.out
 coverage.txt
+!/docs/verification/**/coverage.txt
 
 # --- Logs & Temporary Files ---
 *.log

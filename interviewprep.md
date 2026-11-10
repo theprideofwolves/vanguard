@@ -170,3 +170,29 @@ Tests use mock transports; they do not demonstrate real Slack delivery.
 Use only claims you can demonstrate from the current version. Do not claim reduced
 incidents, adoption, time saved, deployment or a globally unique invention without
 independent evidence. Explain AI assistance and your own design/testing work honestly.
+
+## Discussing measured results
+
+See [recorded verification](docs/verification/2026-11-10-windows/RESULTS.md) and
+[methodology](docs/VERIFICATION.md). The run passed 37 top-level tests and 60
+subtests, plus 2,048 evaluation and 1,024 comparison cases checked against a seeded
+accepted-count-set model. Whole-project statement coverage was 85.5%, including
+launcher code in the denominator. Bounded fuzz runs recorded 437,630 executions
+without a failure. None of those figures is malware-detection accuracy.
+
+The measured 10,000-finding report took 71.9 ms median across five Go benchmark
+samples on Windows 11 / Ryzen 9 5980HX / Go 1.25.5. This includes parsing, schema
+and duplicate validation, counting and hashing, but excludes process startup,
+disk I/O and export serialization. It is not an end-to-end service latency or
+p95/p99. Cumulative allocated bytes are not peak RAM. Explain the workload and
+boundaries whenever quoting the timing.
+
+A defensible resume bullet is:
+
+> Implemented Go policy-change impact analysis with 3,072 seeded reference-model
+> checks and 85.5% whole-project statement coverage; benchmarked in-process
+> evaluation of 10,000 synthetic findings at 71.9 ms median across five samples.
+
+Use the project link for the full hardware/methodology context. Do not convert
+these results into a claim about production throughput, false-positive rate,
+prevented incidents, time savings or Microsoft hiring outcomes.

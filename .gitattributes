@@ -1,0 +1,2 @@
+# Preserve machine-generated verification text, including padded Go CPU headers.
+docs/verification/** text eol=lf -whitespace

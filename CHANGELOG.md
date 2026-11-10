@@ -1,4 +1,7 @@
-# v1.3.0 (local, unpublished)
+# v1.3.0 (source update; binary release pending)
+
+Added reproducible verification reports with whole-project coverage, seeded
+reference-model checks, bounded fuzzing and six benchmark workloads.
 
 Added policy-change impact analysis in CLI and UI: effective limit changes,
 per-report verdict transitions, raw policy/report hashes and review-required

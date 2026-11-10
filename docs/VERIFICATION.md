@@ -4,6 +4,14 @@ Vanguard evaluates supplied normalized findings; it is not a malware detector.
 Report correctness, measured cost and tested behaviors. Do not describe synthetic
 tests as detection accuracy, production adoption, prevented incidents or time saved.
 
+## Recorded result
+
+[Windows verification, November 10, 2026](verification/2026-11-10-windows/RESULTS.md):
+37 top-level tests, 60 subtests, 3,072 generated reference-model cases, 85.5% whole-project
+statement coverage, and 437,630 recorded executions across three bounded fuzz runs.
+No test failures or skips were recorded. See raw logs and five-sample benchmark
+measurements in that report. These values describe that run, not every future build.
+
 ## Reproduce the evidence
 
 Requires Go 1.25.5+, a C compiler for race detection, Python 3 and Bash (Git Bash

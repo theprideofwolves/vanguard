@@ -1,0 +1,486 @@
+{"Time":"2026-11-10T10:58:38.7774776-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard"}
+{"Time":"2026-11-10T10:58:38.7774776-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/desktop"}
+{"Time":"2026-11-10T10:58:38.7774776-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/evaluator"}
+{"Time":"2026-11-10T10:58:38.7774776-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/gate"}
+{"Time":"2026-11-10T10:58:38.7779883-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/models"}
+{"Time":"2026-11-10T10:58:38.7779883-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/onboarding"}
+{"Time":"2026-11-10T10:58:38.7779883-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/parser"}
+{"Time":"2026-11-10T10:58:38.7779883-05:00","Action":"start","Package":"github.com/theprideofwolves/vanguard/internal/reader"}
+{"Time":"2026-11-10T10:58:39.1833629-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases"}
+{"Time":"2026-11-10T10:58:39.1833629-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases","Output":"=== RUN   TestReportEdgeCases\n"}
+{"Time":"2026-11-10T10:58:39.1833629-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/invalid_UTF8"}
+{"Time":"2026-11-10T10:58:39.1833629-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/invalid_UTF8","Output":"=== RUN   TestReportEdgeCases/invalid_UTF8\n"}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/invalid_UTF8","Output":"--- PASS: TestReportEdgeCases/invalid_UTF8 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/invalid_UTF8","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/empty"}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/empty","Output":"=== RUN   TestReportEdgeCases/empty\n"}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/empty","Output":"--- PASS: TestReportEdgeCases/empty (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/empty","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/trailing_garbage"}
+{"Time":"2026-11-10T10:58:39.1838912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/trailing_garbage","Output":"=== RUN   TestReportEdgeCases/trailing_garbage\n"}
+{"Time":"2026-11-10T10:58:39.1844258-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/trailing_garbage","Output":"--- PASS: TestReportEdgeCases/trailing_garbage (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1844258-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/trailing_garbage","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/escaped_duplicate_key"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/escaped_duplicate_key","Output":"=== RUN   TestReportEdgeCases/escaped_duplicate_key\n"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/escaped_duplicate_key","Output":"--- PASS: TestReportEdgeCases/escaped_duplicate_key (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/escaped_duplicate_key","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/nested_duplicate"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/nested_duplicate","Output":"=== RUN   TestReportEdgeCases/nested_duplicate\n"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/nested_duplicate","Output":"--- PASS: TestReportEdgeCases/nested_duplicate (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/nested_duplicate","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_array_type"}
+{"Time":"2026-11-10T10:58:39.1850046-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_array_type","Output":"=== RUN   TestReportEdgeCases/wrong_array_type\n"}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_array_type","Output":"--- PASS: TestReportEdgeCases/wrong_array_type (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_array_type","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_field_type"}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_field_type","Output":"=== RUN   TestReportEdgeCases/wrong_field_type\n"}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_field_type","Output":"--- PASS: TestReportEdgeCases/wrong_field_type (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/wrong_field_type","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/deep_input"}
+{"Time":"2026-11-10T10:58:39.1855355-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/deep_input","Output":"=== RUN   TestReportEdgeCases/deep_input\n"}
+{"Time":"2026-11-10T10:58:39.2112834-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/deep_input","Output":"--- PASS: TestReportEdgeCases/deep_input (0.03s)\n"}
+{"Time":"2026-11-10T10:58:39.2112834-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/deep_input","Elapsed":0.03}
+{"Time":"2026-11-10T10:58:39.2112834-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/same_ID_distinct_finding"}
+{"Time":"2026-11-10T10:58:39.2112834-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/same_ID_distinct_finding","Output":"=== RUN   TestReportEdgeCases/same_ID_distinct_finding\n"}
+{"Time":"2026-11-10T10:58:39.2128131-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/same_ID_distinct_finding","Output":"--- PASS: TestReportEdgeCases/same_ID_distinct_finding (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.2128131-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/same_ID_distinct_finding","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.2128131-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/distinct_descriptions"}
+{"Time":"2026-11-10T10:58:39.2128131-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/distinct_descriptions","Output":"=== RUN   TestReportEdgeCases/distinct_descriptions\n"}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/distinct_descriptions","Output":"--- PASS: TestReportEdgeCases/distinct_descriptions (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/distinct_descriptions","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/reordered_identical"}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/reordered_identical","Output":"=== RUN   TestReportEdgeCases/reordered_identical\n"}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/reordered_identical","Output":"--- PASS: TestReportEdgeCases/reordered_identical (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/reordered_identical","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/Unicode"}
+{"Time":"2026-11-10T10:58:39.2133417-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/Unicode","Output":"=== RUN   TestReportEdgeCases/Unicode\n"}
+{"Time":"2026-11-10T10:58:39.2138788-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/Unicode","Output":"--- PASS: TestReportEdgeCases/Unicode (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.2138788-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases/Unicode","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.2138788-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases","Output":"--- PASS: TestReportEdgeCases (0.03s)\n"}
+{"Time":"2026-11-10T10:58:39.2138788-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportEdgeCases","Elapsed":0.03}
+{"Time":"2026-11-10T10:58:39.2138788-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportSizeBoundary"}
+{"Time":"2026-11-10T10:58:39.2138788-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportSizeBoundary","Output":"=== RUN   TestReportSizeBoundary\n"}
+{"Time":"2026-11-10T10:58:39.2161194-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestPolicyEdgeCases"}
+{"Time":"2026-11-10T10:58:39.2161194-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestPolicyEdgeCases","Output":"=== RUN   TestPolicyEdgeCases\n"}
+{"Time":"2026-11-10T10:58:39.2384665-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/reader","Output":"\tgithub.com/theprideofwolves/vanguard/internal/reader\t\tcoverage: 0.0% of statements\n"}
+{"Time":"2026-11-10T10:58:39.2384665-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/models","Output":"\tgithub.com/theprideofwolves/vanguard/internal/models\t\tcoverage: 0.0% of statements\n"}
+{"Time":"2026-11-10T10:58:39.2974875-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestVanguardDataDirectoryOverride"}
+{"Time":"2026-11-10T10:58:39.2981017-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestVanguardDataDirectoryOverride","Output":"=== RUN   TestVanguardDataDirectoryOverride\n"}
+{"Time":"2026-11-10T10:58:39.3012669-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestVanguardDataDirectoryOverride","Output":"--- PASS: TestVanguardDataDirectoryOverride (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3012669-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestVanguardDataDirectoryOverride","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3012669-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries"}
+{"Time":"2026-11-10T10:58:39.3012669-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries","Output":"=== RUN   TestRequestBoundaries\n"}
+{"Time":"2026-11-10T10:58:39.3017925-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/allowed"}
+{"Time":"2026-11-10T10:58:39.3017925-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/allowed","Output":"=== RUN   TestRequestBoundaries/allowed\n"}
+{"Time":"2026-11-10T10:58:39.3017925-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/allowed","Output":"--- PASS: TestRequestBoundaries/allowed (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3017925-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/allowed","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3017925-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/missing_token"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/missing_token","Output":"=== RUN   TestRequestBoundaries/missing_token\n"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/missing_token","Output":"--- PASS: TestRequestBoundaries/missing_token (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/missing_token","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_host"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_host","Output":"=== RUN   TestRequestBoundaries/foreign_host\n"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_host","Output":"--- PASS: TestRequestBoundaries/foreign_host (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_host","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_origin"}
+{"Time":"2026-11-10T10:58:39.3023214-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_origin","Output":"=== RUN   TestRequestBoundaries/foreign_origin\n"}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_origin","Output":"--- PASS: TestRequestBoundaries/foreign_origin (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/foreign_origin","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/method"}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/method","Output":"=== RUN   TestRequestBoundaries/method\n"}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/method","Output":"--- PASS: TestRequestBoundaries/method (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries/method","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries","Output":"--- PASS: TestRequestBoundaries (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Test":"TestRequestBoundaries","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.3028519-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Output":"PASS\n"}
+{"Time":"2026-11-10T10:58:39.3249395-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Output":"coverage: 3.3% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:39.5413997-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestFirstRunChoiceAndPersistence"}
+{"Time":"2026-11-10T10:58:39.5413997-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestFirstRunChoiceAndPersistence","Output":"=== RUN   TestFirstRunChoiceAndPersistence\n"}
+{"Time":"2026-11-10T10:58:39.5622584-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestFirstRunChoiceAndPersistence","Output":"--- PASS: TestFirstRunChoiceAndPersistence (0.02s)\n"}
+{"Time":"2026-11-10T10:58:39.5630191-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestFirstRunChoiceAndPersistence","Elapsed":0.02}
+{"Time":"2026-11-10T10:58:39.5630191-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestRequestAndSampleBoundaries"}
+{"Time":"2026-11-10T10:58:39.5630191-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestRequestAndSampleBoundaries","Output":"=== RUN   TestRequestAndSampleBoundaries\n"}
+{"Time":"2026-11-10T10:58:39.5640623-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestRequestAndSampleBoundaries","Output":"--- PASS: TestRequestAndSampleBoundaries (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.5640623-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestRequestAndSampleBoundaries","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.5640623-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestPreferenceFailures"}
+{"Time":"2026-11-10T10:58:39.5640623-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestPreferenceFailures","Output":"=== RUN   TestPreferenceFailures\n"}
+{"Time":"2026-11-10T10:58:39.5786212-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestPreferenceFailures","Output":"--- PASS: TestPreferenceFailures (0.01s)\n"}
+{"Time":"2026-11-10T10:58:39.579098-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Test":"TestPreferenceFailures","Elapsed":0.01}
+{"Time":"2026-11-10T10:58:39.579098-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Output":"PASS\n"}
+{"Time":"2026-11-10T10:58:39.5948224-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Output":"coverage: 14.2% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:39.6368231-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestPolicyEdgeCases","Output":"--- PASS: TestPolicyEdgeCases (0.42s)\n"}
+{"Time":"2026-11-10T10:58:39.6368231-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestPolicyEdgeCases","Elapsed":0.42}
+{"Time":"2026-11-10T10:58:39.6368231-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds"}
+{"Time":"2026-11-10T10:58:39.6368231-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds","Output":"=== RUN   TestRejectNonIntegerThresholds\n"}
+{"Time":"2026-11-10T10:58:39.6373507-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/null"}
+{"Time":"2026-11-10T10:58:39.6373507-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/null","Output":"=== RUN   TestRejectNonIntegerThresholds/null\n"}
+{"Time":"2026-11-10T10:58:39.63788-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/null","Output":"--- PASS: TestRejectNonIntegerThresholds/null (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.63788-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/null","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.63788-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/~"}
+{"Time":"2026-11-10T10:58:39.63788-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/~","Output":"=== RUN   TestRejectNonIntegerThresholds/~\n"}
+{"Time":"2026-11-10T10:58:39.63788-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/~","Output":"--- PASS: TestRejectNonIntegerThresholds/~ (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/~","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/1.5"}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/1.5","Output":"=== RUN   TestRejectNonIntegerThresholds/1.5\n"}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/1.5","Output":"--- PASS: TestRejectNonIntegerThresholds/1.5 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/1.5","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/true"}
+{"Time":"2026-11-10T10:58:39.6383984-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/true","Output":"=== RUN   TestRejectNonIntegerThresholds/true\n"}
+{"Time":"2026-11-10T10:58:39.6389216-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/true","Output":"--- PASS: TestRejectNonIntegerThresholds/true (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.6389216-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/true","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.6389216-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/\"2\""}
+{"Time":"2026-11-10T10:58:39.6389216-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/\"2\"","Output":"=== RUN   TestRejectNonIntegerThresholds/\"2\"\n"}
+{"Time":"2026-11-10T10:58:39.6394581-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/\"2\"","Output":"--- PASS: TestRejectNonIntegerThresholds/\"2\" (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.6394581-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds/\"2\"","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.6394581-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds","Output":"--- PASS: TestRejectNonIntegerThresholds (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.6394581-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectNonIntegerThresholds","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.6394581-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectInvalidPolicies"}
+{"Time":"2026-11-10T10:58:39.6394581-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectInvalidPolicies","Output":"=== RUN   TestRejectInvalidPolicies\n"}
+{"Time":"2026-11-10T10:58:39.6421728-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/models","Elapsed":0.864}
+{"Time":"2026-11-10T10:58:39.6482575-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/reader","Elapsed":0.87}
+{"Time":"2026-11-10T10:58:39.708802-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectInvalidPolicies","Output":"--- PASS: TestRejectInvalidPolicies (0.07s)\n"}
+{"Time":"2026-11-10T10:58:39.708802-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"TestRejectInvalidPolicies","Elapsed":0.07}
+{"Time":"2026-11-10T10:58:39.708802-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy"}
+{"Time":"2026-11-10T10:58:39.708802-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy","Output":"=== RUN   FuzzPolicy\n"}
+{"Time":"2026-11-10T10:58:39.7093818-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#0"}
+{"Time":"2026-11-10T10:58:39.7093818-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#0","Output":"=== RUN   FuzzPolicy/seed#0\n"}
+{"Time":"2026-11-10T10:58:39.7093818-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#0","Output":"--- PASS: FuzzPolicy/seed#0 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.7093818-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#0","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.7093818-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#1"}
+{"Time":"2026-11-10T10:58:39.7093818-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#1","Output":"=== RUN   FuzzPolicy/seed#1\n"}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#1","Output":"--- PASS: FuzzPolicy/seed#1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#1","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#2"}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#2","Output":"=== RUN   FuzzPolicy/seed#2\n"}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#2","Output":"--- PASS: FuzzPolicy/seed#2 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#2","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#3"}
+{"Time":"2026-11-10T10:58:39.7099094-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#3","Output":"=== RUN   FuzzPolicy/seed#3\n"}
+{"Time":"2026-11-10T10:58:39.7104222-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#3","Output":"--- PASS: FuzzPolicy/seed#3 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.7104222-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy/seed#3","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.7104222-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy","Output":"--- PASS: FuzzPolicy (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.7104222-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Test":"FuzzPolicy","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.7104222-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Output":"PASS\n"}
+{"Time":"2026-11-10T10:58:39.7336986-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Output":"coverage: 6.3% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:39.8436117-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionEvidenceMatchesExactBytes"}
+{"Time":"2026-11-10T10:58:39.8436117-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionEvidenceMatchesExactBytes","Output":"=== RUN   TestDecisionEvidenceMatchesExactBytes\n"}
+{"Time":"2026-11-10T10:58:39.8456675-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionEvidenceMatchesExactBytes","Output":"--- PASS: TestDecisionEvidenceMatchesExactBytes (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.8456675-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionEvidenceMatchesExactBytes","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.8456675-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestMalformedReports"}
+{"Time":"2026-11-10T10:58:39.8456675-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestMalformedReports","Output":"=== RUN   TestMalformedReports\n"}
+{"Time":"2026-11-10T10:58:39.848292-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestMalformedReports","Output":"--- PASS: TestMalformedReports (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.848292-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestMalformedReports","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.848292-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport"}
+{"Time":"2026-11-10T10:58:39.848292-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport","Output":"=== RUN   TestSlackSummaryAndFailuresUseMockTransport\n"}
+{"Time":"2026-11-10T10:58:39.8488399-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/ok"}
+{"Time":"2026-11-10T10:58:39.8488399-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/ok","Output":"=== RUN   TestSlackSummaryAndFailuresUseMockTransport/ok\n"}
+{"Time":"2026-11-10T10:58:39.8493647-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/ok","Output":"--- PASS: TestSlackSummaryAndFailuresUseMockTransport/ok (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.8493647-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/ok","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.8493647-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/429"}
+{"Time":"2026-11-10T10:58:39.8493647-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/429","Output":"=== RUN   TestSlackSummaryAndFailuresUseMockTransport/429\n"}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/429","Output":"--- PASS: TestSlackSummaryAndFailuresUseMockTransport/429 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/429","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/redirect"}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/redirect","Output":"=== RUN   TestSlackSummaryAndFailuresUseMockTransport/redirect\n"}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/redirect","Output":"--- PASS: TestSlackSummaryAndFailuresUseMockTransport/redirect (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/redirect","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/transport"}
+{"Time":"2026-11-10T10:58:39.849896-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/transport","Output":"=== RUN   TestSlackSummaryAndFailuresUseMockTransport/transport\n"}
+{"Time":"2026-11-10T10:58:39.8504274-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/transport","Output":"--- PASS: TestSlackSummaryAndFailuresUseMockTransport/transport (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.8504274-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport/transport","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.8504274-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport","Output":"--- PASS: TestSlackSummaryAndFailuresUseMockTransport (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.8504274-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackSummaryAndFailuresUseMockTransport","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.8504274-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionBoundaries"}
+{"Time":"2026-11-10T10:58:39.8504274-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionBoundaries","Output":"=== RUN   TestDecisionBoundaries\n"}
+{"Time":"2026-11-10T10:58:39.852633-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionBoundaries","Output":"--- PASS: TestDecisionBoundaries (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.852633-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestDecisionBoundaries","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.852633-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestBadInput"}
+{"Time":"2026-11-10T10:58:39.852633-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestBadInput","Output":"=== RUN   TestBadInput\n"}
+{"Time":"2026-11-10T10:58:39.9618518-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestBadInput","Output":"--- PASS: TestBadInput (0.11s)\n"}
+{"Time":"2026-11-10T10:58:39.9633716-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestBadInput","Elapsed":0.11}
+{"Time":"2026-11-10T10:58:39.9633716-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestRejectAmbiguousJSONFieldCasing"}
+{"Time":"2026-11-10T10:58:39.9633716-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestRejectAmbiguousJSONFieldCasing","Output":"=== RUN   TestRejectAmbiguousJSONFieldCasing\n"}
+{"Time":"2026-11-10T10:58:39.9643028-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestRejectAmbiguousJSONFieldCasing","Output":"--- PASS: TestRejectAmbiguousJSONFieldCasing (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9643028-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestRejectAmbiguousJSONFieldCasing","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9643028-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackFailureDoesNotMutateVerdict"}
+{"Time":"2026-11-10T10:58:39.9643028-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackFailureDoesNotMutateVerdict","Output":"=== RUN   TestSlackFailureDoesNotMutateVerdict\n"}
+{"Time":"2026-11-10T10:58:39.964824-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackFailureDoesNotMutateVerdict","Output":"--- PASS: TestSlackFailureDoesNotMutateVerdict (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.964824-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestSlackFailureDoesNotMutateVerdict","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.964824-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestPolicyImpactTransitionsAndEvidence"}
+{"Time":"2026-11-10T10:58:39.964824-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestPolicyImpactTransitionsAndEvidence","Output":"=== RUN   TestPolicyImpactTransitionsAndEvidence\n"}
+{"Time":"2026-11-10T10:58:39.9695004-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestPolicyImpactTransitionsAndEvidence","Output":"--- PASS: TestPolicyImpactTransitionsAndEvidence (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9695004-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestPolicyImpactTransitionsAndEvidence","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9695004-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges"}
+{"Time":"2026-11-10T10:58:39.9700251-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges","Output":"=== RUN   TestEffectiveLimitChanges\n"}
+{"Time":"2026-11-10T10:58:39.9700251-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_1"}
+{"Time":"2026-11-10T10:58:39.9700251-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_1","Output":"=== RUN   TestEffectiveLimitChanges/high:_0-\u003ehigh:_1\n"}
+{"Time":"2026-11-10T10:58:39.9705496-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_1","Output":"--- PASS: TestEffectiveLimitChanges/high:_0-\u003ehigh:_1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9705496-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_1","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9705496-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_0"}
+{"Time":"2026-11-10T10:58:39.9705496-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_0","Output":"=== RUN   TestEffectiveLimitChanges/high:_1-\u003ehigh:_0\n"}
+{"Time":"2026-11-10T10:58:39.9710719-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_0","Output":"--- PASS: TestEffectiveLimitChanges/high:_1-\u003ehigh:_0 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9710719-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_0","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9710719-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_-1"}
+{"Time":"2026-11-10T10:58:39.9710719-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_-1","Output":"=== RUN   TestEffectiveLimitChanges/high:_0-\u003ehigh:_-1\n"}
+{"Time":"2026-11-10T10:58:39.9715907-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_-1","Output":"--- PASS: TestEffectiveLimitChanges/high:_0-\u003ehigh:_-1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9715907-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_0-\u003ehigh:_-1","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9715907-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ecritical:_0"}
+{"Time":"2026-11-10T10:58:39.9715907-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ecritical:_0","Output":"=== RUN   TestEffectiveLimitChanges/high:_-1-\u003ecritical:_0\n"}
+{"Time":"2026-11-10T10:58:39.9721016-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ecritical:_0","Output":"--- PASS: TestEffectiveLimitChanges/high:_-1-\u003ecritical:_0 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9721016-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ecritical:_0","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9721016-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/critical:_0-\u003ehigh:_-1"}
+{"Time":"2026-11-10T10:58:39.9721016-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/critical:_0-\u003ehigh:_-1","Output":"=== RUN   TestEffectiveLimitChanges/critical:_0-\u003ehigh:_-1\n"}
+{"Time":"2026-11-10T10:58:39.9726281-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/critical:_0-\u003ehigh:_-1","Output":"--- PASS: TestEffectiveLimitChanges/critical:_0-\u003ehigh:_-1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9726281-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/critical:_0-\u003ehigh:_-1","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9726281-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ehigh:_0"}
+{"Time":"2026-11-10T10:58:39.9726281-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ehigh:_0","Output":"=== RUN   TestEffectiveLimitChanges/high:_-1-\u003ehigh:_0\n"}
+{"Time":"2026-11-10T10:58:39.9732338-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ehigh:_0","Output":"--- PASS: TestEffectiveLimitChanges/high:_-1-\u003ehigh:_0 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9732338-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_-1-\u003ehigh:_0","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9732338-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_1"}
+{"Time":"2026-11-10T10:58:39.9732338-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_1","Output":"=== RUN   TestEffectiveLimitChanges/high:_1-\u003ehigh:_1\n"}
+{"Time":"2026-11-10T10:58:39.9737613-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_1","Output":"--- PASS: TestEffectiveLimitChanges/high:_1-\u003ehigh:_1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9737613-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges/high:_1-\u003ehigh:_1","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.974285-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges","Output":"--- PASS: TestEffectiveLimitChanges (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.974285-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestEffectiveLimitChanges","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.974285-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic"}
+{"Time":"2026-11-10T10:58:39.974285-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic","Output":"=== RUN   TestInvalidImpactIsAtomic\n"}
+{"Time":"2026-11-10T10:58:39.9885003-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_base"}
+{"Time":"2026-11-10T10:58:39.9894912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_base","Output":"=== RUN   TestInvalidImpactIsAtomic/invalid_base\n"}
+{"Time":"2026-11-10T10:58:39.9894912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_base","Output":"--- PASS: TestInvalidImpactIsAtomic/invalid_base (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9894912-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_base","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9894912-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_candidate"}
+{"Time":"2026-11-10T10:58:39.9894912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_candidate","Output":"=== RUN   TestInvalidImpactIsAtomic/invalid_candidate\n"}
+{"Time":"2026-11-10T10:58:39.989996-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_candidate","Output":"--- PASS: TestInvalidImpactIsAtomic/invalid_candidate (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.989996-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/invalid_candidate","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.989996-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/no_reports"}
+{"Time":"2026-11-10T10:58:39.989996-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/no_reports","Output":"=== RUN   TestInvalidImpactIsAtomic/no_reports\n"}
+{"Time":"2026-11-10T10:58:39.9905105-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/no_reports","Output":"--- PASS: TestInvalidImpactIsAtomic/no_reports (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9905105-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/no_reports","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9905105-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/duplicate_labels"}
+{"Time":"2026-11-10T10:58:39.9905105-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/duplicate_labels","Output":"=== RUN   TestInvalidImpactIsAtomic/duplicate_labels\n"}
+{"Time":"2026-11-10T10:58:39.9910411-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/duplicate_labels","Output":"--- PASS: TestInvalidImpactIsAtomic/duplicate_labels (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9910411-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/duplicate_labels","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9910411-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/missing_label"}
+{"Time":"2026-11-10T10:58:39.9910411-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/missing_label","Output":"=== RUN   TestInvalidImpactIsAtomic/missing_label\n"}
+{"Time":"2026-11-10T10:58:39.9910411-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/missing_label","Output":"--- PASS: TestInvalidImpactIsAtomic/missing_label (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9915645-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/missing_label","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9915645-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/bad_report_after_valid"}
+{"Time":"2026-11-10T10:58:39.9915645-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/bad_report_after_valid","Output":"=== RUN   TestInvalidImpactIsAtomic/bad_report_after_valid\n"}
+{"Time":"2026-11-10T10:58:39.9920859-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/bad_report_after_valid","Output":"--- PASS: TestInvalidImpactIsAtomic/bad_report_after_valid (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9920859-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/bad_report_after_valid","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9920859-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/ambiguous_report"}
+{"Time":"2026-11-10T10:58:39.9920859-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/ambiguous_report","Output":"=== RUN   TestInvalidImpactIsAtomic/ambiguous_report\n"}
+{"Time":"2026-11-10T10:58:39.9926159-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/ambiguous_report","Output":"--- PASS: TestInvalidImpactIsAtomic/ambiguous_report (0.00s)\n"}
+{"Time":"2026-11-10T10:58:39.9926159-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/ambiguous_report","Elapsed":0}
+{"Time":"2026-11-10T10:58:39.9926159-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/oversized_report"}
+{"Time":"2026-11-10T10:58:39.9926159-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/oversized_report","Output":"=== RUN   TestInvalidImpactIsAtomic/oversized_report\n"}
+{"Time":"2026-11-10T10:58:40.0592405-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/oversized_report","Output":"--- PASS: TestInvalidImpactIsAtomic/oversized_report (0.07s)\n"}
+{"Time":"2026-11-10T10:58:40.0598545-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic/oversized_report","Elapsed":0.07}
+{"Time":"2026-11-10T10:58:40.0618528-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic","Output":"--- PASS: TestInvalidImpactIsAtomic (0.09s)\n"}
+{"Time":"2026-11-10T10:58:40.0618528-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestInvalidImpactIsAtomic","Elapsed":0.09}
+{"Time":"2026-11-10T10:58:40.0618528-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestImpactCorpusByteBoundary"}
+{"Time":"2026-11-10T10:58:40.0618528-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestImpactCorpusByteBoundary","Output":"=== RUN   TestImpactCorpusByteBoundary\n"}
+{"Time":"2026-11-10T10:58:40.3541443-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Output":"ok  \tgithub.com/theprideofwolves/vanguard/internal/desktop\t1.574s\tcoverage: 3.3% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:40.3541443-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/desktop","Elapsed":1.577}
+{"Time":"2026-11-10T10:58:40.5085212-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestAppearanceAndSessionInputs"}
+{"Time":"2026-11-10T10:58:40.5085212-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestAppearanceAndSessionInputs","Output":"=== RUN   TestAppearanceAndSessionInputs\n"}
+{"Time":"2026-11-10T10:58:40.516384-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestAppearanceAndSessionInputs","Output":"--- PASS: TestAppearanceAndSessionInputs (0.01s)\n"}
+{"Time":"2026-11-10T10:58:40.5169065-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestAppearanceAndSessionInputs","Elapsed":0.01}
+{"Time":"2026-11-10T10:58:40.5169065-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestThemeRequestGuards"}
+{"Time":"2026-11-10T10:58:40.5169065-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestThemeRequestGuards","Output":"=== RUN   TestThemeRequestGuards\n"}
+{"Time":"2026-11-10T10:58:40.5179351-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestThemeRequestGuards","Output":"--- PASS: TestThemeRequestGuards (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5179351-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestThemeRequestGuards","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5179351-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestConcurrentEvaluationAndExport"}
+{"Time":"2026-11-10T10:58:40.5179351-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestConcurrentEvaluationAndExport","Output":"=== RUN   TestConcurrentEvaluationAndExport\n"}
+{"Time":"2026-11-10T10:58:40.5353845-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestConcurrentEvaluationAndExport","Output":"--- PASS: TestConcurrentEvaluationAndExport (0.02s)\n"}
+{"Time":"2026-11-10T10:58:40.5353845-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestConcurrentEvaluationAndExport","Elapsed":0.02}
+{"Time":"2026-11-10T10:58:40.5353845-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI"}
+{"Time":"2026-11-10T10:58:40.5353845-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI","Output":"=== RUN   TestCompareCLI\n"}
+{"Time":"2026-11-10T10:58:40.5380218-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/relax"}
+{"Time":"2026-11-10T10:58:40.5380218-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/relax","Output":"=== RUN   TestCompareCLI/relax\n"}
+{"Time":"2026-11-10T10:58:40.5490919-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/relax","Output":"--- PASS: TestCompareCLI/relax (0.01s)\n"}
+{"Time":"2026-11-10T10:58:40.5494761-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/relax","Elapsed":0.01}
+{"Time":"2026-11-10T10:58:40.5494761-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/tighten"}
+{"Time":"2026-11-10T10:58:40.5494761-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/tighten","Output":"=== RUN   TestCompareCLI/tighten\n"}
+{"Time":"2026-11-10T10:58:40.5515842-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/tighten","Output":"--- PASS: TestCompareCLI/tighten (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5515842-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/tighten","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5515842-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/text"}
+{"Time":"2026-11-10T10:58:40.5515842-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/text","Output":"=== RUN   TestCompareCLI/text\n"}
+{"Time":"2026-11-10T10:58:40.5536953-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/text","Output":"--- PASS: TestCompareCLI/text (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5536953-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/text","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5536953-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/no_change"}
+{"Time":"2026-11-10T10:58:40.5536953-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/no_change","Output":"=== RUN   TestCompareCLI/no_change\n"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/no_change","Output":"--- PASS: TestCompareCLI/no_change (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/no_change","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/help"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/help","Output":"=== RUN   TestCompareCLI/help\n"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/help","Output":"--- PASS: TestCompareCLI/help (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/help","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_flags"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_flags","Output":"=== RUN   TestCompareCLI/missing_flags\n"}
+{"Time":"2026-11-10T10:58:40.555265-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_flags","Output":"--- PASS: TestCompareCLI/missing_flags (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_flags","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_base"}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_base","Output":"=== RUN   TestCompareCLI/missing_base\n"}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_base","Output":"--- PASS: TestCompareCLI/missing_base (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_base","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_candidate"}
+{"Time":"2026-11-10T10:58:40.5557912-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_candidate","Output":"=== RUN   TestCompareCLI/missing_candidate\n"}
+{"Time":"2026-11-10T10:58:40.5563157-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_candidate","Output":"--- PASS: TestCompareCLI/missing_candidate (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5563157-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_candidate","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5563157-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_report"}
+{"Time":"2026-11-10T10:58:40.5563157-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_report","Output":"=== RUN   TestCompareCLI/missing_report\n"}
+{"Time":"2026-11-10T10:58:40.5573467-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_report","Output":"--- PASS: TestCompareCLI/missing_report (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5573467-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/missing_report","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5573467-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/reject_notification"}
+{"Time":"2026-11-10T10:58:40.5573467-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/reject_notification","Output":"=== RUN   TestCompareCLI/reject_notification\n"}
+{"Time":"2026-11-10T10:58:40.5577086-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/reject_notification","Output":"--- PASS: TestCompareCLI/reject_notification (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5577086-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/reject_notification","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5577086-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/extra_arg"}
+{"Time":"2026-11-10T10:58:40.5577086-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/extra_arg","Output":"=== RUN   TestCompareCLI/extra_arg\n"}
+{"Time":"2026-11-10T10:58:40.5577086-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/extra_arg","Output":"--- PASS: TestCompareCLI/extra_arg (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.5577086-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI/extra_arg","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.5663958-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI","Output":"--- PASS: TestCompareCLI (0.03s)\n"}
+{"Time":"2026-11-10T10:58:40.5663958-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCompareCLI","Elapsed":0.03}
+{"Time":"2026-11-10T10:58:40.5663958-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestImpactFileIntake"}
+{"Time":"2026-11-10T10:58:40.5663958-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestImpactFileIntake","Output":"=== RUN   TestImpactFileIntake\n"}
+{"Time":"2026-11-10T10:58:40.6161884-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Output":"ok  \tgithub.com/theprideofwolves/vanguard/internal/onboarding\t1.836s\tcoverage: 14.2% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:40.6161884-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/onboarding","Elapsed":1.838}
+{"Time":"2026-11-10T10:58:40.6231379-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestImpactFileIntake","Output":"--- PASS: TestImpactFileIntake (0.06s)\n"}
+{"Time":"2026-11-10T10:58:40.6231379-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestImpactFileIntake","Elapsed":0.06}
+{"Time":"2026-11-10T10:58:40.6231379-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestJSONAndNotificationExit"}
+{"Time":"2026-11-10T10:58:40.6231379-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestJSONAndNotificationExit","Output":"=== RUN   TestJSONAndNotificationExit\n"}
+{"Time":"2026-11-10T10:58:40.6256402-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestJSONAndNotificationExit","Output":"--- PASS: TestJSONAndNotificationExit (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.6256402-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestJSONAndNotificationExit","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.6256402-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestPolicyImpactUISession"}
+{"Time":"2026-11-10T10:58:40.6256402-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestPolicyImpactUISession","Output":"=== RUN   TestPolicyImpactUISession\n"}
+{"Time":"2026-11-10T10:58:40.6953467-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestPolicyImpactUISession","Output":"--- PASS: TestPolicyImpactUISession (0.07s)\n"}
+{"Time":"2026-11-10T10:58:40.6962187-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestPolicyImpactUISession","Elapsed":0.07}
+{"Time":"2026-11-10T10:58:40.6962187-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIOutputFailure"}
+{"Time":"2026-11-10T10:58:40.6962187-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIOutputFailure","Output":"=== RUN   TestCLIOutputFailure\n"}
+{"Time":"2026-11-10T10:58:40.6987989-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIOutputFailure","Output":"--- PASS: TestCLIOutputFailure (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.6987989-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIOutputFailure","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.6987989-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus"}
+{"Time":"2026-11-10T10:58:40.6987989-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus","Output":"=== RUN   TestCLIMockedNotificationPreservesExitStatus\n"}
+{"Time":"2026-11-10T10:58:40.6987989-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/429"}
+{"Time":"2026-11-10T10:58:40.6987989-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/429","Output":"=== RUN   TestCLIMockedNotificationPreservesExitStatus/429\n"}
+{"Time":"2026-11-10T10:58:40.7024894-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/429","Output":"--- PASS: TestCLIMockedNotificationPreservesExitStatus/429 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7029845-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/429","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7029845-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/redirect"}
+{"Time":"2026-11-10T10:58:40.7029845-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/redirect","Output":"=== RUN   TestCLIMockedNotificationPreservesExitStatus/redirect\n"}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportSizeBoundary","Output":"--- PASS: TestReportSizeBoundary (1.49s)\n"}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"TestReportSizeBoundary","Elapsed":1.49}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/redirect","Output":"--- PASS: TestCLIMockedNotificationPreservesExitStatus/redirect (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse"}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/redirect","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse","Output":"=== RUN   FuzzParse\n"}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/transport"}
+{"Time":"2026-11-10T10:58:40.7062756-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/transport","Output":"=== RUN   TestCLIMockedNotificationPreservesExitStatus/transport\n"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#0"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#0","Output":"=== RUN   FuzzParse/seed#0\n"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#0","Output":"--- PASS: FuzzParse/seed#0 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#0","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#1"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#1","Output":"=== RUN   FuzzParse/seed#1\n"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#1","Output":"--- PASS: FuzzParse/seed#1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#1","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#2"}
+{"Time":"2026-11-10T10:58:40.7069104-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#2","Output":"=== RUN   FuzzParse/seed#2\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#2","Output":"--- PASS: FuzzParse/seed#2 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#2","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#3"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#3","Output":"=== RUN   FuzzParse/seed#3\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#3","Output":"--- PASS: FuzzParse/seed#3 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#3","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#4"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#4","Output":"=== RUN   FuzzParse/seed#4\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#4","Output":"--- PASS: FuzzParse/seed#4 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#4","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#5"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#5","Output":"=== RUN   FuzzParse/seed#5\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#5","Output":"--- PASS: FuzzParse/seed#5 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7074482-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse/seed#5","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7079752-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse","Output":"--- PASS: FuzzParse (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7079752-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Test":"FuzzParse","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7079752-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Output":"PASS\n"}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/transport","Output":"--- PASS: TestCLIMockedNotificationPreservesExitStatus/transport (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus/transport","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus","Output":"--- PASS: TestCLIMockedNotificationPreservesExitStatus (0.01s)\n"}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLIMockedNotificationPreservesExitStatus","Elapsed":0.01}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI"}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI","Output":"=== RUN   TestCLI\n"}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/pass"}
+{"Time":"2026-11-10T10:58:40.7101007-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/pass","Output":"=== RUN   TestCLI/pass\n"}
+{"Time":"2026-11-10T10:58:40.7117103-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/pass","Output":"--- PASS: TestCLI/pass (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7117103-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/pass","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7117103-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/fail"}
+{"Time":"2026-11-10T10:58:40.7117103-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/fail","Output":"=== RUN   TestCLI/fail\n"}
+{"Time":"2026-11-10T10:58:40.7132699-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/fail","Output":"--- PASS: TestCLI/fail (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7132699-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/fail","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7132699-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/missing"}
+{"Time":"2026-11-10T10:58:40.7132699-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/missing","Output":"=== RUN   TestCLI/missing\n"}
+{"Time":"2026-11-10T10:58:40.7132699-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/missing","Output":"--- PASS: TestCLI/missing (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7137903-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI/missing","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7137903-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI","Output":"--- PASS: TestCLI (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7137903-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestCLI","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7137903-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectInvalidInput"}
+{"Time":"2026-11-10T10:58:40.7137903-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectInvalidInput","Output":"=== RUN   TestRejectInvalidInput\n"}
+{"Time":"2026-11-10T10:58:40.7230191-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Output":"coverage: 9.3% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:40.7396634-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectInvalidInput","Output":"--- PASS: TestRejectInvalidInput (0.03s)\n"}
+{"Time":"2026-11-10T10:58:40.7396634-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectInvalidInput","Elapsed":0.03}
+{"Time":"2026-11-10T10:58:40.7396634-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision"}
+{"Time":"2026-11-10T10:58:40.7396634-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision","Output":"=== RUN   TestRejectedUploadClearsCurrentDecision\n"}
+{"Time":"2026-11-10T10:58:40.7396634-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/malformed_multipart"}
+{"Time":"2026-11-10T10:58:40.7396634-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/malformed_multipart","Output":"=== RUN   TestRejectedUploadClearsCurrentDecision/malformed_multipart\n"}
+{"Time":"2026-11-10T10:58:40.7422887-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/malformed_multipart","Output":"--- PASS: TestRejectedUploadClearsCurrentDecision/malformed_multipart (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7422887-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/malformed_multipart","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7422887-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/wrong_content_type"}
+{"Time":"2026-11-10T10:58:40.7422887-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/wrong_content_type","Output":"=== RUN   TestRejectedUploadClearsCurrentDecision/wrong_content_type\n"}
+{"Time":"2026-11-10T10:58:40.7448907-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/wrong_content_type","Output":"--- PASS: TestRejectedUploadClearsCurrentDecision/wrong_content_type (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7448907-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision/wrong_content_type","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7448907-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision","Output":"--- PASS: TestRejectedUploadClearsCurrentDecision (0.01s)\n"}
+{"Time":"2026-11-10T10:58:40.7448907-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestRejectedUploadClearsCurrentDecision","Elapsed":0.01}
+{"Time":"2026-11-10T10:58:40.7448907-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUploadOverridesPasteAndInvalidInputClearsExport"}
+{"Time":"2026-11-10T10:58:40.7448907-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUploadOverridesPasteAndInvalidInputClearsExport","Output":"=== RUN   TestUploadOverridesPasteAndInvalidInputClearsExport\n"}
+{"Time":"2026-11-10T10:58:40.7543998-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUploadOverridesPasteAndInvalidInputClearsExport","Output":"--- PASS: TestUploadOverridesPasteAndInvalidInputClearsExport (0.01s)\n"}
+{"Time":"2026-11-10T10:58:40.7543998-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUploadOverridesPasteAndInvalidInputClearsExport","Elapsed":0.01}
+{"Time":"2026-11-10T10:58:40.7543998-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUIEvaluationAndExport"}
+{"Time":"2026-11-10T10:58:40.7543998-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUIEvaluationAndExport","Output":"=== RUN   TestUIEvaluationAndExport\n"}
+{"Time":"2026-11-10T10:58:40.7554395-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Output":"ok  \tgithub.com/theprideofwolves/vanguard/internal/evaluator\t1.976s\tcoverage: 6.3% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:40.7554395-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/evaluator","Elapsed":1.978}
+{"Time":"2026-11-10T10:58:40.7579426-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUIEvaluationAndExport","Output":"--- PASS: TestUIEvaluationAndExport (0.00s)\n"}
+{"Time":"2026-11-10T10:58:40.7579426-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Test":"TestUIEvaluationAndExport","Elapsed":0}
+{"Time":"2026-11-10T10:58:40.7579426-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Output":"PASS\n"}
+{"Time":"2026-11-10T10:58:40.7721425-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Output":"coverage: 73.1% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:41.7771892-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/parser","Output":"ok  \tgithub.com/theprideofwolves/vanguard/internal/parser\t2.997s\tcoverage: 9.3% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:41.7771892-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/parser","Elapsed":2.999}
+{"Time":"2026-11-10T10:58:41.7940482-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Output":"ok  \tgithub.com/theprideofwolves/vanguard/cmd/vanguard\t3.015s\tcoverage: 73.1% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:41.7940482-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/cmd/vanguard","Elapsed":3.017}
+{"Time":"2026-11-10T10:58:45.0806286-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestImpactCorpusByteBoundary","Output":"--- PASS: TestImpactCorpusByteBoundary (5.02s)\n"}
+{"Time":"2026-11-10T10:58:45.0812942-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestImpactCorpusByteBoundary","Elapsed":5.02}
+{"Time":"2026-11-10T10:58:45.0812942-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedDecisionsAgainstReference"}
+{"Time":"2026-11-10T10:58:45.0812942-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedDecisionsAgainstReference","Output":"=== RUN   TestGeneratedDecisionsAgainstReference\n"}
+{"Time":"2026-11-10T10:58:46.4819388-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedDecisionsAgainstReference","Output":"    reference_test.go:105: REFERENCE_EVALUATION_CASES=2048 seed=20261110\n"}
+{"Time":"2026-11-10T10:58:46.4819388-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedDecisionsAgainstReference","Output":"--- PASS: TestGeneratedDecisionsAgainstReference (1.41s)\n"}
+{"Time":"2026-11-10T10:58:46.4868073-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedDecisionsAgainstReference","Elapsed":1.41}
+{"Time":"2026-11-10T10:58:46.4868073-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedComparisonsAgainstReference"}
+{"Time":"2026-11-10T10:58:46.4868073-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedComparisonsAgainstReference","Output":"=== RUN   TestGeneratedComparisonsAgainstReference\n"}
+{"Time":"2026-11-10T10:58:47.4264194-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedComparisonsAgainstReference","Output":"    reference_test.go:155: REFERENCE_COMPARISON_CASES=1024 seed=20261111\n"}
+{"Time":"2026-11-10T10:58:47.4272099-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedComparisonsAgainstReference","Output":"--- PASS: TestGeneratedComparisonsAgainstReference (0.94s)\n"}
+{"Time":"2026-11-10T10:58:47.4272099-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"TestGeneratedComparisonsAgainstReference","Elapsed":0.94}
+{"Time":"2026-11-10T10:58:47.4272099-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact"}
+{"Time":"2026-11-10T10:58:47.4272099-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact","Output":"=== RUN   FuzzPolicyImpact\n"}
+{"Time":"2026-11-10T10:58:47.4272099-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#0"}
+{"Time":"2026-11-10T10:58:47.4272099-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#0","Output":"=== RUN   FuzzPolicyImpact/seed#0\n"}
+{"Time":"2026-11-10T10:58:47.4277159-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#0","Output":"--- PASS: FuzzPolicyImpact/seed#0 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:47.4277159-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#0","Elapsed":0}
+{"Time":"2026-11-10T10:58:47.4277159-05:00","Action":"run","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#1"}
+{"Time":"2026-11-10T10:58:47.4277159-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#1","Output":"=== RUN   FuzzPolicyImpact/seed#1\n"}
+{"Time":"2026-11-10T10:58:47.428725-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#1","Output":"--- PASS: FuzzPolicyImpact/seed#1 (0.00s)\n"}
+{"Time":"2026-11-10T10:58:47.428725-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact/seed#1","Elapsed":0}
+{"Time":"2026-11-10T10:58:47.428725-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact","Output":"--- PASS: FuzzPolicyImpact (0.00s)\n"}
+{"Time":"2026-11-10T10:58:47.428725-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Test":"FuzzPolicyImpact","Elapsed":0}
+{"Time":"2026-11-10T10:58:47.428725-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Output":"PASS\n"}
+{"Time":"2026-11-10T10:58:47.440991-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Output":"coverage: 29.9% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:48.4947722-05:00","Action":"output","Package":"github.com/theprideofwolves/vanguard/internal/gate","Output":"ok  \tgithub.com/theprideofwolves/vanguard/internal/gate\t9.715s\tcoverage: 29.9% of statements in ./...\n"}
+{"Time":"2026-11-10T10:58:48.4947722-05:00","Action":"pass","Package":"github.com/theprideofwolves/vanguard/internal/gate","Elapsed":9.717}

@@ -1,0 +1,349 @@
+{
+  "status": "PASS",
+  "started_utc": "2026-11-10T15:58:31.178670+00:00",
+  "source_commit": "c4d356a4c6787e1560bf7a7e2b314717c89663ab",
+  "worktree_clean_at_start": true,
+  "source_fingerprint": "1f17625d8459c4df4dedd083c9cc87c229e337573ffc3b81e739fd1984d54032",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "python": "3.14.3",
+  "go_version": "go version go1.25.5 windows/amd64",
+  "benchmark_count": 5,
+  "benchmark_time": "500ms",
+  "fuzz_seconds_per_target": 15,
+  "steps": [
+    {
+      "name": "vet",
+      "command": [
+        "go",
+        "vet",
+        "./..."
+      ],
+      "status": "PASS",
+      "wall_seconds": 1.211
+    },
+    {
+      "name": "race-and-coverage",
+      "command": [
+        "go",
+        "test",
+        "-race",
+        "-count=1",
+        "-coverpkg=./...",
+        "-coverprofile=<WORKSPACE>\\docs\\verification\\2026-11-10-windows\\coverage.txt",
+        "-json",
+        "./..."
+      ],
+      "status": "PASS",
+      "wall_seconds": 16.008
+    },
+    {
+      "name": "coverage-summary",
+      "command": [
+        "go",
+        "tool",
+        "cover",
+        "-func=<WORKSPACE>\\docs\\verification\\2026-11-10-windows\\coverage.txt"
+      ],
+      "status": "PASS",
+      "wall_seconds": 0.784
+    },
+    {
+      "name": "build",
+      "command": [
+        "go",
+        "build",
+        "-trimpath",
+        "-o",
+        "<WORKSPACE>\\tmp\\_verification\\run-_nei5pjk\\vanguard.exe",
+        "./cmd/vanguard"
+      ],
+      "status": "PASS",
+      "wall_seconds": 1.803
+    },
+    {
+      "name": "compiled-smoke",
+      "command": [
+        "<USERPROFILE>\\AppData\\Local\\Programs\\Python\\Python314\\python.exe",
+        "<WORKSPACE>\\.github\\scripts\\smoke.py",
+        "<WORKSPACE>\\tmp\\_verification\\run-_nei5pjk\\vanguard.exe"
+      ],
+      "status": "PASS",
+      "wall_seconds": 15.839
+    },
+    {
+      "name": "ci-examples",
+      "command": "local example verification",
+      "status": "PASS",
+      "wall_seconds": 13.307
+    },
+    {
+      "name": "fuzz-parser",
+      "command": [
+        "go",
+        "test",
+        "./internal/parser",
+        "-run",
+        "^$",
+        "-fuzz",
+        "FuzzParse",
+        "-fuzztime",
+        "15s",
+        "-parallel",
+        "2"
+      ],
+      "status": "PASS",
+      "wall_seconds": 18.777
+    },
+    {
+      "name": "fuzz-evaluator",
+      "command": [
+        "go",
+        "test",
+        "./internal/evaluator",
+        "-run",
+        "^$",
+        "-fuzz",
+        "FuzzPolicy",
+        "-fuzztime",
+        "15s",
+        "-parallel",
+        "2"
+      ],
+      "status": "PASS",
+      "wall_seconds": 19.979
+    },
+    {
+      "name": "fuzz-gate",
+      "command": [
+        "go",
+        "test",
+        "./internal/gate",
+        "-run",
+        "^$",
+        "-fuzz",
+        "FuzzPolicyImpact",
+        "-fuzztime",
+        "15s",
+        "-parallel",
+        "2"
+      ],
+      "status": "PASS",
+      "wall_seconds": 29.379
+    },
+    {
+      "name": "benchmarks",
+      "command": [
+        "go",
+        "test",
+        "./internal/gate",
+        "-run",
+        "^$",
+        "-bench",
+        "Benchmark",
+        "-benchmem",
+        "-benchtime",
+        "500ms",
+        "-count",
+        "5"
+      ],
+      "status": "PASS",
+      "wall_seconds": 29.743
+    }
+  ],
+  "tests": {
+    "top_level_tests_passed": 37,
+    "subtests_passed": 60,
+    "fuzz_seed_invocations_passed": 12,
+    "failed_invocations": [],
+    "skipped_invocations": [],
+    "generated_evaluation_cases": 2048,
+    "generated_comparison_cases": 1024,
+    "passed_test_names": [
+      "FuzzParse",
+      "FuzzParse/seed#0",
+      "FuzzParse/seed#1",
+      "FuzzParse/seed#2",
+      "FuzzParse/seed#3",
+      "FuzzParse/seed#4",
+      "FuzzParse/seed#5",
+      "FuzzPolicy",
+      "FuzzPolicy/seed#0",
+      "FuzzPolicy/seed#1",
+      "FuzzPolicy/seed#2",
+      "FuzzPolicy/seed#3",
+      "FuzzPolicyImpact",
+      "FuzzPolicyImpact/seed#0",
+      "FuzzPolicyImpact/seed#1",
+      "TestAppearanceAndSessionInputs",
+      "TestBadInput",
+      "TestCLI",
+      "TestCLI/fail",
+      "TestCLI/missing",
+      "TestCLI/pass",
+      "TestCLIMockedNotificationPreservesExitStatus",
+      "TestCLIMockedNotificationPreservesExitStatus/429",
+      "TestCLIMockedNotificationPreservesExitStatus/redirect",
+      "TestCLIMockedNotificationPreservesExitStatus/transport",
+      "TestCLIOutputFailure",
+      "TestCompareCLI",
+      "TestCompareCLI/extra_arg",
+      "TestCompareCLI/help",
+      "TestCompareCLI/missing_base",
+      "TestCompareCLI/missing_candidate",
+      "TestCompareCLI/missing_flags",
+      "TestCompareCLI/missing_report",
+      "TestCompareCLI/no_change",
+      "TestCompareCLI/reject_notification",
+      "TestCompareCLI/relax",
+      "TestCompareCLI/text",
+      "TestCompareCLI/tighten",
+      "TestConcurrentEvaluationAndExport",
+      "TestDecisionBoundaries",
+      "TestDecisionEvidenceMatchesExactBytes",
+      "TestEffectiveLimitChanges",
+      "TestEffectiveLimitChanges/critical:_0->high:_-1",
+      "TestEffectiveLimitChanges/high:_-1->critical:_0",
+      "TestEffectiveLimitChanges/high:_-1->high:_0",
+      "TestEffectiveLimitChanges/high:_0->high:_-1",
+      "TestEffectiveLimitChanges/high:_0->high:_1",
+      "TestEffectiveLimitChanges/high:_1->high:_0",
+      "TestEffectiveLimitChanges/high:_1->high:_1",
+      "TestFirstRunChoiceAndPersistence",
+      "TestGeneratedComparisonsAgainstReference",
+      "TestGeneratedDecisionsAgainstReference",
+      "TestImpactCorpusByteBoundary",
+      "TestImpactFileIntake",
+      "TestInvalidImpactIsAtomic",
+      "TestInvalidImpactIsAtomic/ambiguous_report",
+      "TestInvalidImpactIsAtomic/bad_report_after_valid",
+      "TestInvalidImpactIsAtomic/duplicate_labels",
+      "TestInvalidImpactIsAtomic/invalid_base",
+      "TestInvalidImpactIsAtomic/invalid_candidate",
+      "TestInvalidImpactIsAtomic/missing_label",
+      "TestInvalidImpactIsAtomic/no_reports",
+      "TestInvalidImpactIsAtomic/oversized_report",
+      "TestJSONAndNotificationExit",
+      "TestMalformedReports",
+      "TestPolicyEdgeCases",
+      "TestPolicyImpactTransitionsAndEvidence",
+      "TestPolicyImpactUISession",
+      "TestPreferenceFailures",
+      "TestRejectAmbiguousJSONFieldCasing",
+      "TestRejectInvalidInput",
+      "TestRejectInvalidPolicies",
+      "TestRejectNonIntegerThresholds",
+      "TestRejectNonIntegerThresholds/\"2\"",
+      "TestRejectNonIntegerThresholds/1.5",
+      "TestRejectNonIntegerThresholds/null",
+      "TestRejectNonIntegerThresholds/true",
+      "TestRejectNonIntegerThresholds/~",
+      "TestRejectedUploadClearsCurrentDecision",
+      "TestRejectedUploadClearsCurrentDecision/malformed_multipart",
+      "TestRejectedUploadClearsCurrentDecision/wrong_content_type",
+      "TestReportEdgeCases",
+      "TestReportEdgeCases/Unicode",
+      "TestReportEdgeCases/deep_input",
+      "TestReportEdgeCases/distinct_descriptions",
+      "TestReportEdgeCases/empty",
+      "TestReportEdgeCases/escaped_duplicate_key",
+      "TestReportEdgeCases/invalid_UTF8",
+      "TestReportEdgeCases/nested_duplicate",
+      "TestReportEdgeCases/reordered_identical",
+      "TestReportEdgeCases/same_ID_distinct_finding",
+      "TestReportEdgeCases/trailing_garbage",
+      "TestReportEdgeCases/wrong_array_type",
+      "TestReportEdgeCases/wrong_field_type",
+      "TestReportSizeBoundary",
+      "TestRequestAndSampleBoundaries",
+      "TestRequestBoundaries",
+      "TestRequestBoundaries/allowed",
+      "TestRequestBoundaries/foreign_host",
+      "TestRequestBoundaries/foreign_origin",
+      "TestRequestBoundaries/method",
+      "TestRequestBoundaries/missing_token",
+      "TestSlackFailureDoesNotMutateVerdict",
+      "TestSlackSummaryAndFailuresUseMockTransport",
+      "TestSlackSummaryAndFailuresUseMockTransport/429",
+      "TestSlackSummaryAndFailuresUseMockTransport/ok",
+      "TestSlackSummaryAndFailuresUseMockTransport/redirect",
+      "TestSlackSummaryAndFailuresUseMockTransport/transport",
+      "TestThemeRequestGuards",
+      "TestUIEvaluationAndExport",
+      "TestUploadOverridesPasteAndInvalidInputClearsExport",
+      "TestVanguardDataDirectoryOverride"
+    ]
+  },
+  "coverage_percent": 85.5,
+  "binary_sha256": "f83259373e0349cbd9044bc30d75f6fceb4c87c05d5f75dd1b9efd489794de84",
+  "fuzz": [
+    {
+      "target": "FuzzParse",
+      "executions": 315168
+    },
+    {
+      "target": "FuzzPolicy",
+      "executions": 63991
+    },
+    {
+      "target": "FuzzPolicyImpact",
+      "executions": 58471
+    }
+  ],
+  "benchmarks": [
+    {
+      "name": "BenchmarkEvaluate/findings_100",
+      "samples": 5,
+      "median_ms_per_op": 0.675642,
+      "min_ms_per_op": 0.611007,
+      "max_ms_per_op": 0.782214,
+      "median_allocated_bytes_per_op": 289843.0,
+      "median_allocations_per_op": 5336.0
+    },
+    {
+      "name": "BenchmarkEvaluate/findings_1000",
+      "samples": 5,
+      "median_ms_per_op": 7.6479,
+      "min_ms_per_op": 7.099232,
+      "max_ms_per_op": 9.084029,
+      "median_allocated_bytes_per_op": 2931532.0,
+      "median_allocations_per_op": 51271.0
+    },
+    {
+      "name": "BenchmarkEvaluate/findings_10000",
+      "samples": 5,
+      "median_ms_per_op": 71.882175,
+      "min_ms_per_op": 64.36805,
+      "max_ms_per_op": 87.0188,
+      "median_allocated_bytes_per_op": 34741676.0,
+      "median_allocations_per_op": 510364.0
+    },
+    {
+      "name": "BenchmarkComparePolicies/reports_1_findings_1000_each",
+      "samples": 5,
+      "median_ms_per_op": 9.506263,
+      "min_ms_per_op": 8.274148,
+      "max_ms_per_op": 14.288898,
+      "median_allocated_bytes_per_op": 2946720.0,
+      "median_allocations_per_op": 51420.0
+    },
+    {
+      "name": "BenchmarkComparePolicies/reports_8_findings_1000_each",
+      "samples": 5,
+      "median_ms_per_op": 60.00472,
+      "min_ms_per_op": 57.467422,
+      "max_ms_per_op": 102.5924,
+      "median_allocated_bytes_per_op": 23391671.0,
+      "median_allocations_per_op": 409548.0
+    },
+    {
+      "name": "BenchmarkComparePolicies/reports_32_findings_1000_each",
+      "samples": 5,
+      "median_ms_per_op": 196.062933,
+      "min_ms_per_op": 192.4366,
+      "max_ms_per_op": 202.056233,
+      "median_allocated_bytes_per_op": 93485229.0,
+      "median_allocations_per_op": 1637380.0
+    }
+  ],
+  "finished_utc": "2026-11-10T16:00:58.308613+00:00"
+}

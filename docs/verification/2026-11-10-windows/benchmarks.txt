@@ -1,0 +1,36 @@
+goos: windows
+goarch: amd64
+pkg: github.com/theprideofwolves/vanguard/internal/gate
+cpu: AMD Ryzen 9 5980HX with Radeon Graphics        
+BenchmarkEvaluate/findings_100-16         	     951	    611007 ns/op	  20.08 MB/s	  289843 B/op	    5336 allocs/op
+BenchmarkEvaluate/findings_100-16         	     889	    675642 ns/op	  18.16 MB/s	  289832 B/op	    5336 allocs/op
+BenchmarkEvaluate/findings_100-16         	     865	    657369 ns/op	  18.66 MB/s	  289825 B/op	    5336 allocs/op
+BenchmarkEvaluate/findings_100-16         	     919	    751727 ns/op	  16.32 MB/s	  289845 B/op	    5336 allocs/op
+BenchmarkEvaluate/findings_100-16         	     844	    782214 ns/op	  15.68 MB/s	  289889 B/op	    5337 allocs/op
+BenchmarkEvaluate/findings_1000-16        	      69	   7647900 ns/op	  15.96 MB/s	 2931602 B/op	   51271 allocs/op
+BenchmarkEvaluate/findings_1000-16        	      85	   7099232 ns/op	  17.19 MB/s	 2931532 B/op	   51270 allocs/op
+BenchmarkEvaluate/findings_1000-16        	      84	   8106187 ns/op	  15.06 MB/s	 2931687 B/op	   51272 allocs/op
+BenchmarkEvaluate/findings_1000-16        	      80	   9084029 ns/op	  13.44 MB/s	 2931432 B/op	   51271 allocs/op
+BenchmarkEvaluate/findings_1000-16        	      92	   7398837 ns/op	  16.50 MB/s	 2931306 B/op	   51269 allocs/op
+BenchmarkEvaluate/findings_10000-16       	       8	  71882175 ns/op	  16.97 MB/s	34741835 B/op	  510364 allocs/op
+BenchmarkEvaluate/findings_10000-16       	       6	  87018800 ns/op	  14.02 MB/s	34741188 B/op	  510362 allocs/op
+BenchmarkEvaluate/findings_10000-16       	       8	  64368050 ns/op	  18.95 MB/s	34741676 B/op	  510365 allocs/op
+BenchmarkEvaluate/findings_10000-16       	       8	  70534738 ns/op	  17.30 MB/s	34741079 B/op	  510362 allocs/op
+BenchmarkEvaluate/findings_10000-16       	       8	  74131075 ns/op	  16.46 MB/s	34743148 B/op	  510369 allocs/op
+BenchmarkComparePolicies/reports_1_findings_1000_each-16         	      93	   8274148 ns/op	  14.75 MB/s	 2946365 B/op	   51419 allocs/op
+BenchmarkComparePolicies/reports_1_findings_1000_each-16         	      69	   8992043 ns/op	  13.58 MB/s	 2946720 B/op	   51420 allocs/op
+BenchmarkComparePolicies/reports_1_findings_1000_each-16         	      68	   9506263 ns/op	  12.84 MB/s	 2946512 B/op	   51420 allocs/op
+BenchmarkComparePolicies/reports_1_findings_1000_each-16         	      46	  14288898 ns/op	   8.54 MB/s	 2946773 B/op	   51422 allocs/op
+BenchmarkComparePolicies/reports_1_findings_1000_each-16         	      69	  11696013 ns/op	  10.44 MB/s	 2946803 B/op	   51421 allocs/op
+BenchmarkComparePolicies/reports_8_findings_1000_each-16         	       7	 102592400 ns/op	   9.52 MB/s	23392964 B/op	  409547 allocs/op
+BenchmarkComparePolicies/reports_8_findings_1000_each-16         	       9	  57467422 ns/op	  16.99 MB/s	23391544 B/op	  409544 allocs/op
+BenchmarkComparePolicies/reports_8_findings_1000_each-16         	      10	  60004720 ns/op	  16.27 MB/s	23393650 B/op	  409561 allocs/op
+BenchmarkComparePolicies/reports_8_findings_1000_each-16         	      10	  61355420 ns/op	  15.92 MB/s	23391671 B/op	  409549 allocs/op
+BenchmarkComparePolicies/reports_8_findings_1000_each-16         	      10	  59736180 ns/op	  16.35 MB/s	23390776 B/op	  409548 allocs/op
+BenchmarkComparePolicies/reports_32_findings_1000_each-16        	       3	 193415967 ns/op	  20.20 MB/s	93485229 B/op	 1637380 allocs/op
+BenchmarkComparePolicies/reports_32_findings_1000_each-16        	       3	 192436600 ns/op	  20.30 MB/s	93482229 B/op	 1637366 allocs/op
+BenchmarkComparePolicies/reports_32_findings_1000_each-16        	       3	 196062933 ns/op	  19.92 MB/s	93488138 B/op	 1637396 allocs/op
+BenchmarkComparePolicies/reports_32_findings_1000_each-16        	       3	 197978133 ns/op	  19.73 MB/s	93490114 B/op	 1637427 allocs/op
+BenchmarkComparePolicies/reports_32_findings_1000_each-16        	       3	 202056233 ns/op	  19.33 MB/s	93485042 B/op	 1637362 allocs/op
+PASS
+ok  	github.com/theprideofwolves/vanguard/internal/gate	27.930s

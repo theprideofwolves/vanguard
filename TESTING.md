@@ -3,6 +3,17 @@
 All automated checks are local and free. Use synthetic normalized reports;
 do not provide real webhook credentials. Slack transport tests never open a socket.
 
+For recorded metrics and raw results, see [verification evidence](docs/VERIFICATION.md).
+To rerun all checks and generate a new report:
+
+```sh
+python .github/scripts/verify.py --output tmp/verification-review
+```
+
+This also requires Bash (Git Bash on Windows). Choose a new output directory for
+each run; the verifier preserves existing evidence. CI records the same categories
+on Windows/Linux and uploads verification artifacts; consult the actual run status.
+
 ## Automated checks
 
 Requires Go 1.25.5+, a C compiler for race detection, and Python 3 for the
