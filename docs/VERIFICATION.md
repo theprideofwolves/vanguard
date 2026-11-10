@@ -12,6 +12,10 @@ statement coverage, and 437,630 recorded executions across three bounded fuzz ru
 No test failures or skips were recorded. See raw logs and five-sample benchmark
 measurements in that report. These values describe that run, not every future build.
 
+[Hosted Windows and Ubuntu verification](verification/2026-11-10-github/RESULTS.md)
+also passed on source commit `feb6d3e`; its actual job outcomes and artifact
+metadata are recorded separately. The binary-release job was skipped.
+
 ## Reproduce the evidence
 
 Requires Go 1.25.5+, a C compiler for race detection, Python 3 and Bash (Git Bash

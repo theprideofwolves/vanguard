@@ -1,0 +1,171 @@
+{
+  "run_id": 42851012838,
+  "url": "https://github.com/theprideofwolves/vanguard/actions/runs/42851012838",
+  "head_sha": "feb6d3e8d1d614cd9e86c9d47708d0c92cf9dc67",
+  "status": "completed",
+  "conclusion": "success",
+  "event": "push",
+  "created_at": "2026-11-10T16:05:11Z",
+  "updated_at": "2026-11-10T16:07:47Z",
+  "jobs": [
+    {
+      "name": "test (ubuntu-latest)",
+      "url": "https://github.com/theprideofwolves/vanguard/actions/runs/42851012838/job/129951361368",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-10T16:05:14Z",
+      "completed_at": "2026-11-10T16:07:11Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-go@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record functional, fuzz, coverage and benchmark evidence",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run go build -trimpath -o dist/vanguard ./cmd/vanguard",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-go@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "test (windows-latest)",
+      "url": "https://github.com/theprideofwolves/vanguard/actions/runs/42851012838/job/129951361913",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-11-10T16:05:14Z",
+      "completed_at": "2026-11-10T16:07:47Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-go@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Record functional, fuzz, coverage and benchmark evidence",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run go build -trimpath -o dist/vanguard.exe ./cmd/vanguard",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-python@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/setup-go@v5",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "name": "release",
+      "url": "https://github.com/theprideofwolves/vanguard/actions/runs/42851012838/job/129952891137",
+      "status": "completed",
+      "conclusion": "skipped",
+      "started_at": "2026-11-10T16:07:47Z",
+      "completed_at": "2026-11-10T16:07:47Z",
+      "steps": []
+    }
+  ],
+  "artifacts": [
+    {
+      "name": "verification-Linux",
+      "size_in_bytes": 28208,
+      "expired": false,
+      "created_at": "2026-11-10T16:07:06Z",
+      "expires_at": "2027-02-08T16:05:11Z",
+      "digest": "sha256:e8587c1012fde0f78c83ec5ad4c11f860541495cdaf180f7c9442257f01a9aff"
+    },
+    {
+      "name": "vanguard-Windows",
+      "size_in_bytes": 7277042,
+      "expired": false,
+      "created_at": "2026-11-10T16:07:41Z",
+      "expires_at": "2027-02-08T16:05:11Z",
+      "digest": "sha256:325b429f26bfe897d20935b92db1490018c8829c82a27ba2fa1d5289705dbf83"
+    },
+    {
+      "name": "vanguard-Linux",
+      "size_in_bytes": 7214328,
+      "expired": false,
+      "created_at": "2026-11-10T16:07:08Z",
+      "expires_at": "2027-02-08T16:05:11Z",
+      "digest": "sha256:b84943e0daa5cf9d1ea3f6faee3be6a2fecb342656130df5c91183dfe044cfcd"
+    },
+    {
+      "name": "verification-Windows",
+      "size_in_bytes": 26721,
+      "expired": false,
+      "created_at": "2026-11-10T16:07:37Z",
+      "expires_at": "2027-02-08T16:05:11Z",
+      "digest": "sha256:e8ba7588798d48f06eaf09ef3b99d49fb818b6cbb5acdd27af3fb6e0c62cd47f"
+    }
+  ]
+}

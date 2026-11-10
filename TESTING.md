@@ -88,6 +88,6 @@ labels, empty corpora and count/byte overflows fail atomically. Comparing polici
 with identical effective limits is unchanged even if raw hashes differ.
 
 No real Slack delivery is needed for this checklist. Live Slack, clean-machine
-OS behavior, human accessibility review, Linux execution and sustained resource
+desktop behavior, human accessibility review and sustained resource
 measurements are separate checks. Automated coverage and bounded fuzzing are
 not exhaustive or a security/compliance certification.
