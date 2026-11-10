@@ -1,0 +1,17 @@
+# Step fragment: run with a verified vanguard binary on PATH and trusted policy
+# paths. Adapt these synthetic fixture paths to your policy review workflow.
+# Exit 1 means a relaxed limit needs human review, even if no sample verdict flips.
+# This does not approve/merge PRs and never sends Slack notifications.
+steps:
+  - name: Review policy impact and preserve status
+    shell: bash
+    run: |
+      set +e
+      vanguard compare -base testdata/impact/base.yaml -candidate testdata/impact/candidate.yaml -json testdata/impact/reports > policy-impact.json
+      code=$?
+      exit "$code"
+  - uses: actions/upload-artifact@v4
+    if: always()
+    with:
+      name: policy-impact
+      path: policy-impact.json

@@ -15,11 +15,17 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.25.5'
-      - run: go vet ./...
-      - run: go test -race -count=1 ./...
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - name: Record functional, fuzz, coverage and benchmark evidence
+        run: python .github/scripts/verify.py --output verification/${{ runner.os }} --fuzz-seconds 10 --benchmark-count 3 --benchmark-time 250ms
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: verification-${{ runner.os }}
+          path: verification/${{ runner.os }}/
       - run: go build -trimpath -o dist/vanguard${{ runner.os == 'Windows' && '.exe' || '' }} ./cmd/vanguard
-      - name: Packaged workflow smoke test
-        run: python .github/scripts/smoke.py dist/vanguard${{ runner.os == 'Windows' && '.exe' || '' }}
       - uses: actions/upload-artifact@v4
         with:
           name: vanguard-${{ runner.os }}
@@ -43,11 +49,12 @@ jobs:
             mkdir -p "package-$os"
             GOOS=$os GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -o "package-$os/vanguard$ext" ./cmd/vanguard
             go version -m "package-$os/vanguard$ext" > "package-$os/dependencies.txt"
-            cp README.md RELEASE.md architecture.md interviewprep.md explaining-each-decision-taken-over-others.md "package-$os/"
+            cp README.md RELEASE.md TESTING.md architecture.md interviewprep.md explaining-each-decision-taken-over-others.md "package-$os/"
             cp policy.yaml "package-$os/"
             mkdir -p "package-$os/testdata" "package-$os/examples"
+            cp -r testdata/impact "package-$os/testdata/"
             cp testdata/report-pass.json testdata/report-fail.json "package-$os/testdata/"
-            cp examples/github-action.yml "package-$os/examples/"
+            cp examples/github-action.yml examples/github-policy-review.yml examples/policy-review.md "package-$os/examples/"
             (cd "package-$os" && zip -r "../release/vanguard-$os-x64.zip" .)
           done
           (cd release && sha256sum *.zip > SHA256SUMS)

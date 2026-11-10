@@ -1,6 +1,7 @@
 package gate
 
 import (
+	"bytes"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
@@ -36,18 +37,23 @@ func Evaluate(input, policy []byte) (*Decision, error) {
 	if e != nil {
 		return nil, e
 	}
-	r, e := parser.Parse(strings.NewReader(string(input)))
+	r, e := parser.Parse(bytes.NewReader(input))
 	if e != nil {
 		return nil, e
 	}
+	return decisionFor(r, p, Hash(input), Hash(policy), time.Now().UTC()), nil
+}
+
+// Both workflows use the same evaluation and decision construction.
+func decisionFor(r *models.Report, p *evaluator.Policy, inputHash, policyHash string, at time.Time) *Decision {
 	v := evaluator.Evaluate(r, p)
-	d := &Decision{Version: "vanguard-decision/v1", PolicyHash: Hash(policy), InputHash: Hash(input), PolicyName: p.Metadata.Name, At: time.Now().UTC(), Passed: v.Passed, Violations: v.Violations}
+	d := &Decision{Version: "vanguard-decision/v1", PolicyHash: policyHash, InputHash: inputHash, PolicyName: p.Metadata.Name, At: at, Passed: v.Passed, Violations: v.Violations}
 	for _, sev := range []models.Severity{"critical", "high", "medium", "low", "info"} {
 		limit, ok := p.Thresholds[sev]
 		limited := ok && limit >= 0
 		d.Rows = append(d.Rows, Row{sev, v.Summary[sev], limit, limited, limited && v.Summary[sev] > limit})
 	}
-	return d, nil
+	return d
 }
 func Notify(ctx context.Context, client *http.Client, hook string, d *Decision, runURL string) error {
 	u, e := url.Parse(hook)

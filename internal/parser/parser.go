@@ -8,6 +8,7 @@ import (
 	"io"
 	"strings"
 	"unicode"
+	"unicode/utf8"
 )
 
 // Parse reads JSON from r and decodes it into a models.Report.
@@ -22,6 +23,9 @@ func Parse(r io.Reader) (*models.Report, error) {
 	}
 	if len(data) > 16<<20 {
 		return nil, fmt.Errorf("report exceeds 16 MiB")
+	}
+	if !utf8.Valid(data) {
+		return nil, fmt.Errorf("report must be valid UTF-8")
 	}
 	if err := uniqueKeys(json.NewDecoder(bytes.NewReader(data))); err != nil {
 		return nil, err

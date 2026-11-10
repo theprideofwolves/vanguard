@@ -1,27 +1,27 @@
-# Vanguard v1.2.1
+# Vanguard v1.3.0 — local release candidate
 
-Portable single-user Windows/Linux policy evaluation: normalized JSON findings,
-YAML severity thresholds, explained decisions with hashes, session UI/export,
-CI exit codes and optional failure-only CLI Slack notification.
+Policy-change impact analysis adds review of current/proposed severity limits and
+per-report verdict transitions. It identifies newly passing reports, including
+cases where aggregate PASS counts hide changed admissions. Any effective relaxation
+requires review even if supplied samples show no verdict change.
 
-This patch removes unrelated project docs, unused connection/folder setup and
-the old table reporter. It replaces diagrams claiming native scanner adapters
-with the actual evaluation flow. Only VANGUARD_DATA_DIR (parent directory) and
-VANGUARD_NO_BROWSER control the launcher; the default guide directory is unchanged.
-Decisions are session-only. No database or saved assessment history is implemented.
-Ambiguous case-variant duplicate JSON keys now fail validation instead of silently
-replacing an earlier findings array or severity value.
+- CLI: `vanguard compare -base current.yaml -candidate proposed.yaml [-json] reports-dir`
+  (or one report file). Exits 0=no relaxed limits, 1=review required, 2=error.
+- UI: compare a proposed policy on the current pasted/uploaded report. Export only
+  the latest valid evaluation or comparison; invalid input clears stale evidence.
+- Evidence: versioned impact JSON, exact-byte policy/report hashes, ordered limit
+  changes and paired ordinary decisions. Omitted/-1 limits compare as unlimited.
+- Resources: 32 reports / 64 MiB corpus, 16 MiB per report, 1 MiB per policy.
+- Existing evaluation/stdin/0-1-2 exits and failure-only CLI Slack are preserved.
+  Comparison never sends Slack. White and true-black themes share a teal accent.
 
-Portable ZIPs include the executable, docs, policy.yaml, passing/failing reports,
-the CI step example and dependency build metadata. ZIP checksums are published.
-No developer tools, account, database server or paid API are needed offline.
+Portable packaging includes policy/report fixtures, the four-report impact demo,
+CI step fragments, testing instructions and interview/architecture notes. The
+workflow is configured for Windows/Linux; local verification is Windows unless
+TESTING-NOTES.md records otherwise. Builds are unsigned.
 
-Automated gates: race-enabled Go tests, vet, Windows/Linux builds and packaged
-welcome/setup/demo/PASS/FAIL/export/session-restart/invalid-input checks. Tests
-exercise policy boundaries, schema validation, exit codes and Slack contracts.
-Live Slack delivery, human accessibility, clean-machine interactive launch and
-sustained resource measurements remain separate validation. Test success does
-not establish production deployment or exhaustive edge-case coverage.
-
-The binaries are unsigned. The CI example expects an installed verified binary
-and an already normalized upstream report; it does not run a scanner itself.
+This version is not published by this local change. Unit/integration/race/fuzz and
+packaged smoke checks provide bounded evidence, not exhaustive coverage or proof
+of enterprise readiness. Human UI/accessibility, clean-machine launch, live Slack
+and sustained performance remain separate checks. Vanguard is a normalized policy
+gate and review aid; it does not scan, approve policy changes or certify compliance.

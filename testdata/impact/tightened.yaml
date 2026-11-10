@@ -1,0 +1,7 @@
+apiVersion: vanguard/v1
+kind: SecurityPolicy
+metadata:
+  name: stricter-baseline
+thresholds:
+  critical: 0
+  high: 0

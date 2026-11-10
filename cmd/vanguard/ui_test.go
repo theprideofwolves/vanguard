@@ -5,12 +5,52 @@ import (
 	"encoding/json"
 	"github.com/theprideofwolves/vanguard/internal/gate"
 	"mime/multipart"
+	"net/http"
 	"net/http/httptest"
 	"os"
 	"path/filepath"
 	"strings"
 	"testing"
 )
+
+func TestRejectedUploadClearsCurrentDecision(t *testing.T) {
+	for _, tc := range []struct {
+		name, contentType, body string
+	}{
+		{"malformed multipart", "multipart/form-data; boundary=broken", "--broken\r\ninvalid"},
+		{"wrong content type", "application/json", `{}`},
+	} {
+		t.Run(tc.name, func(t *testing.T) {
+			h := newUI("token")
+			var valid bytes.Buffer
+			form := multipart.NewWriter(&valid)
+			form.WriteField("policy", samplePolicy)
+			form.WriteField("report", sampleReport)
+			form.Close()
+			r := httptest.NewRequest("POST", "http://localhost/?token=token", &valid)
+			r.Header.Set("Content-Type", form.FormDataContentType())
+			h.ServeHTTP(httptest.NewRecorder(), r)
+			export := func() int {
+				out := httptest.NewRecorder()
+				h.ServeHTTP(out, httptest.NewRequest("GET", "http://localhost/export?token=token", nil))
+				return out.Code
+			}
+			if export() != http.StatusOK {
+				t.Fatal("valid decision unavailable")
+			}
+			r = httptest.NewRequest("POST", "http://localhost/?token=token", strings.NewReader(tc.body))
+			r.Header.Set("Content-Type", tc.contentType)
+			out := httptest.NewRecorder()
+			h.ServeHTTP(out, r)
+			if out.Code != http.StatusBadRequest {
+				t.Fatalf("invalid upload status: %d", out.Code)
+			}
+			if export() != http.StatusBadRequest {
+				t.Fatal("rejected upload left stale evidence available")
+			}
+		})
+	}
+}
 
 func TestUploadOverridesPasteAndInvalidInputClearsExport(t *testing.T) {
 	dir := t.TempDir()
@@ -74,7 +114,7 @@ func TestUIEvaluationAndExport(t *testing.T) {
 	h := newUI("token")
 	w := httptest.NewRecorder()
 	h.ServeHTTP(w, httptest.NewRequest("GET", "http://localhost/?token=token", nil))
-	if !strings.Contains(w.Body.String(), "background:#0b1627") {
+	if !strings.Contains(w.Body.String(), "--bg:#fff") {
 		t.Fatal("CSS not rendered")
 	}
 	var b bytes.Buffer

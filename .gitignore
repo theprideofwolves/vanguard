@@ -3,6 +3,9 @@
 /vanguard.exe
 *.exe
 *.exe~
+
+# Local workflow verification notes
+/TESTING-NOTES.md
 *.dll
 *.so
 *.dylib

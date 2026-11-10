@@ -14,11 +14,18 @@ import (
 )
 
 func run(args []string, out, errOut io.Writer) int {
+	if len(args) > 0 && args[0] == "compare" {
+		return runCompare(args[1:], out, errOut)
+	}
 	fs := flag.NewFlagSet("vanguard", flag.ContinueOnError)
 	fs.SetOutput(errOut)
 	policyPath := fs.String("p", "policy.yaml", "YAML policy path")
 	asJSON := fs.Bool("json", false, "Machine-readable decision on stdout")
 	notify := fs.Bool("notify", false, "On failure notify Slack using VANGUARD_SLACK_WEBHOOK")
+	fs.Usage = func() {
+		fmt.Fprintln(errOut, "Usage: vanguard [flags] report.json|-\nNo arguments: local UI.\nPolicy impact: vanguard compare -h\nEvaluation exits: 0 PASS, 1 policy FAIL, 2 error.")
+		fs.PrintDefaults()
+	}
 	if e := fs.Parse(args); e != nil {
 		if e == flag.ErrHelp {
 			return 0

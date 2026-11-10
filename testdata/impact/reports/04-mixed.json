@@ -1,0 +1,18 @@
+{
+  "tool": "synthetic-impact-demo",
+  "target": "04-mixed",
+  "findings": [
+    {
+      "id": "C1",
+      "severity": "critical"
+    },
+    {
+      "id": "H1",
+      "severity": "high"
+    },
+    {
+      "id": "H2",
+      "severity": "high"
+    }
+  ]
+}

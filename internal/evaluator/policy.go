@@ -13,10 +13,34 @@ import (
 // Policy represents a security policy loaded from a YAML configuration file.
 // It defines the maximum number of allowed findings per severity level.
 type Policy struct {
-	APIVersion string                  `yaml:"apiVersion"`
-	Kind       string                  `yaml:"kind"`
-	Metadata   PolicyMetadata          `yaml:"metadata"`
-	Thresholds map[models.Severity]int `yaml:"thresholds"`
+	APIVersion string         `yaml:"apiVersion"`
+	Kind       string         `yaml:"kind"`
+	Metadata   PolicyMetadata `yaml:"metadata"`
+	Thresholds Thresholds     `yaml:"thresholds"`
+}
+
+// Thresholds requires integer YAML scalars; yaml.v3 otherwise converts null to
+// zero and truncates fractional values when decoding directly into map values.
+type Thresholds map[models.Severity]int
+
+func (t *Thresholds) UnmarshalYAML(node *yaml.Node) error {
+	var values map[models.Severity]yaml.Node
+	if err := node.Decode(&values); err != nil {
+		return err
+	}
+	limits := make(Thresholds, len(values))
+	for severity, value := range values {
+		if value.Kind != yaml.ScalarNode || value.Tag != "!!int" {
+			return fmt.Errorf("threshold %q must be an integer", severity)
+		}
+		var limit int
+		if err := value.Decode(&limit); err != nil {
+			return err
+		}
+		limits[severity] = limit
+	}
+	*t = limits
+	return nil
 }
 
 // PolicyMetadata holds descriptive metadata for a policy.

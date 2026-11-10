@@ -1,0 +1,10 @@
+{
+  "tool": "synthetic-impact-demo",
+  "target": "02-critical",
+  "findings": [
+    {
+      "id": "C1",
+      "severity": "critical"
+    }
+  ]
+}

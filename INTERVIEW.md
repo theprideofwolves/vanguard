@@ -1,6 +1,7 @@
 # Vanguard interview walkthrough
 
-The maintained source-backed walkthrough is [interviewprep.md](interviewprep.md).
-See [architecture.md](architecture.md) and the
-[decision notes](explaining-each-decision-taken-over-others.md) for source paths
-and tradeoffs. Portable releases include policy.yaml and testdata for CLI practice.
+Start with the [three-minute demo and source-backed interview guide](interviewprep.md).
+The [policy-review example](examples/policy-review.md) explains the distinguishing
+case: unchanged aggregate PASS counts can hide different admitted reports.
+See [architecture](architecture.md), [design decisions](explaining-each-decision-taken-over-others.md)
+and [testing/manual checklist](TESTING.md). All demonstrations use synthetic data.
