@@ -4,6 +4,14 @@ Vanguard evaluates supplied normalized findings; it is not a malware detector.
 Report correctness, measured cost and tested behaviors. Do not describe synthetic
 tests as detection accuracy, production adoption, prevented incidents or time saved.
 
+## Current extension: manual verification pending
+
+Pinned Git review, shadow status and readable packs were added after the recorded
+November 10 runs. They have only been formatted/compiled so far. No new tests,
+benchmarks, hosted runs or real integrations were executed for this extension.
+Use [manual acceptance](MANUAL-REVIEW.md); publish a separate dated result after
+actual testing. The archived figures below are historical, not current coverage.
+
 ## Recorded result
 
 [Windows verification, November 10, 2026](verification/2026-11-10-windows/RESULTS.md):

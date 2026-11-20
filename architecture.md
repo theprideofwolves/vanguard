@@ -72,6 +72,33 @@ outcomes. Comparison exits 0=no relaxation, 1=review required, 2=error. Exit 0 d
 not mean candidate reports all pass or authorize a policy change. Mixed tightening
 and relaxation still needs review. Comparison rejects `-notify` and has no Slack path.
 
+## Pinned review and shadow mode (manual verification pending)
+
+`cmd/vanguard/review.go` loads a baseline through `internal/review/git.go` from
+an exact commit/tree/blob in a local Git repository. Fixed-argument subprocesses
+have bounded output and 10-second deadlines. Branch names, revision expressions,
+unclean paths and Git symlink entries are rejected; replacement objects are disabled.
+No network fetch, checkout, text conversion or candidate code execution occurs.
+The caller must obtain the commit from a trusted context. The command does not
+verify signatures or enforce branch protections/approval rules.
+
+`internal/review/review.go` calls the existing gate comparison. In review mode,
+exit 1 flags a relaxation. In shadow mode, exit 1 means at least one report fails
+the pinned baseline. The candidate cannot change the active gate's outcome.
+Validation/output errors still return 2, including invalid candidate input in shadow.
+
+`markdown.go` renders bounded comparison facts with escaped labels. `pack.go`
+creates an optional new directory with JSON, Markdown, two raw policy snapshots
+and an artifact/report hash manifest. The manifest is renamed into place last;
+failed/incomplete directories are left for inspection and never reused. Verify
+all hashes as well as the completion marker. No report bodies are copied. This is
+an evidence bundle, not signed attestation, append-only audit history or a database.
+
+The unexecuted example workflow builds the tool from base code and reads a candidate
+checkout only as policy data. It is outside .github/workflows. The repository's
+actual workflow and baseline selection must be protected from the PR author.
+See docs/POLICY-REVIEW.md for the full contracts and manual verification status.
+
 ## UI and state
 
 `cmd/vanguard/ui.go` serializes evaluations, comparisons and exports using a mutex.
@@ -79,7 +106,8 @@ Both operations use the same pasted/uploaded report; upload wins. An optional
 candidate-policy field enables single-report comparison. Either operation replaces
 the single current evidence slot. Invalid submissions clear it before upload parsing.
 `/export` returns only the current valid decision or impact JSON, with the appropriate
-filename. Guide navigation and appearance changes preserve inputs/evidence.
+filename. Comparison also supports `/export.md`, with an explicit unpinned-baseline
+notice. Guide navigation and appearance changes preserve inputs/evidence.
 
 `internal/onboarding` owns welcome, sample downloads and the completion preference.
 A valid FAIL or comparison needing review completes the guide. Malformed data does not.

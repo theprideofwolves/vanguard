@@ -41,3 +41,20 @@ research. A threshold increase may be justified; the tool exposes it for review
 rather than asserting that every relaxation is unsafe. Authentication for shared
 hosting, live scanner adapters, saved history, exception engines, baseline finding
 identity and automatic PR approval remain outside this version's scope.
+
+## Pinned-review extension (manual verification pending)
+
+- Keep the deterministic evaluator unchanged. New context/export code is isolated
+  in internal/review and an explicit CLI subcommand.
+- Read the baseline from a full local commit, not a mutable worktree or arbitrary
+  branch. Commit selection and workflow protection remain operator responsibilities.
+- Use review exit status for relaxation, shadow status for the baseline gate.
+  Candidate results never silently replace active enforcement.
+- Prefer JSON/Markdown and a local evidence pack to a model-generated explanation.
+  No provider account or ongoing API bill is required for data processing.
+- Create a new pack directory exclusively, publish a hash manifest last, retain
+  incomplete output for inspection and never reuse old evidence as a new result.
+- Keep API keys, broad filesystem tools, case actions and AI out of this extension.
+  Add them only for a demonstrated user need with separate controls.
+- Defer test execution to the owner as requested. Historical results are preserved
+  with their source commits; no new PASS/coverage/performance claim is inferred.

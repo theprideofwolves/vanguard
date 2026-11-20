@@ -1,3 +1,13 @@
+# Current verification status
+
+The v1.4.0 pinned-review/Markdown/shadow extension awaits manual verification.
+Only formatting and compilation were checked during implementation. The owner
+requested that test execution and CI be left for manual follow-up. Start with
+[MANUAL-REVIEW.md](docs/MANUAL-REVIEW.md) and record results using its template.
+Do not interpret old PASS/coverage numbers as verification of this new code.
+
+The instructions below remain available for when the owner elects to run them.
+
 # Testing Vanguard
 
 All automated checks are local and free. Use synthetic normalized reports;

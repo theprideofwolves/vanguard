@@ -50,11 +50,12 @@ jobs:
             GOOS=$os GOARCH=amd64 CGO_ENABLED=0 go build -trimpath -o "package-$os/vanguard$ext" ./cmd/vanguard
             go version -m "package-$os/vanguard$ext" > "package-$os/dependencies.txt"
             cp README.md RELEASE.md TESTING.md architecture.md interviewprep.md explaining-each-decision-taken-over-others.md "package-$os/"
+            cp -r docs "package-$os/"
             cp policy.yaml "package-$os/"
             mkdir -p "package-$os/testdata" "package-$os/examples"
             cp -r testdata/impact "package-$os/testdata/"
             cp testdata/report-pass.json testdata/report-fail.json "package-$os/testdata/"
-            cp examples/github-action.yml examples/github-policy-review.yml examples/policy-review.md "package-$os/examples/"
+            cp examples/github-action.yml examples/github-policy-review.yml examples/policy-review.md examples/github-trusted-policy-review.yml "package-$os/examples/"
             (cd "package-$os" && zip -r "../release/vanguard-$os-x64.zip" .)
           done
           (cd release && sha256sum *.zip > SHA256SUMS)

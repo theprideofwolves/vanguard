@@ -1,3 +1,7 @@
+Current pinned-review/shadow extension: implemented, compilation checked, manual
+verification pending. Read [the new workflow](docs/POLICY-REVIEW.md) and complete
+[manual acceptance](docs/MANUAL-REVIEW.md) before presenting it as verified.
+
 # Vanguard interview walkthrough
 
 Start with the [three-minute demo and source-backed interview guide](interviewprep.md).

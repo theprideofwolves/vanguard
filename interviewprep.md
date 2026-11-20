@@ -1,3 +1,30 @@
+# v1.4.0 interview status
+
+The latest extension is implemented and compiles; manual verification is pending.
+Do not claim that its Git pinning, shadow workflow, Markdown or pack behavior has
+passed testing yet. Existing metrics below describe earlier source commits.
+
+## New explanation to practice
+
+Vanguard separates security findings from the policy used to admit them. The new
+review command reads the current policy from an exact Git commit chosen by the
+operator. It compares a proposed policy on fixed reports, exports a review pack,
+and can run in shadow mode where only the pinned baseline controls the gate.
+It needs no AI or hosted API. Pinning identifies source bytes; it does not decide
+that a commit is trusted or that a policy change has approval.
+
+Read cmd/vanguard/review.go and internal/review/{git,review,markdown,pack}.go.
+Explain the difference between a relaxation-review exit and a baseline gate exit.
+Explain why the CI template builds base code rather than PR code, why a manifest
+is written last, why incomplete output must not be accepted, and why Markdown
+labels need escaping. Use docs/MANUAL-REVIEW.md before demonstrating these claims.
+
+No AI inference, MCP server, Jira connector or approval engine was added. An AI
+assistant remains optional future work; existing deterministic evidence is enough
+for this project to demonstrate policy-as-code and CI engineering.
+
+---
+
 # Vanguard: interview guide
 
 ## Thirty-second explanation

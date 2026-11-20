@@ -1,79 +1,80 @@
 # Vanguard
 
-A Go security policy gate with **policy-change impact analysis**. Evaluate normalized
-JSON findings against YAML limits, then see which reports would change verdict
-under a proposed policy. **It does not scan vulnerabilities or certify compliance.**
+**Policy-as-code evaluation, policy-change impact analysis and reviewable CI decisions.**
+Vanguard evaluates normalized JSON findings against YAML severity limits. It does
+not scan vulnerabilities, approve policies or certify compliance.
 
-**Recorded verification:** 85.5% whole-project statement coverage and 3,072 seeded
-reference-model cases. A 10,000-finding synthetic report took **71.9 ms median**
-for in-process parsing/evaluation/hashing (five samples, Windows 11, Ryzen 9 5980HX,
-Go 1.25.5). [Full results and raw evidence](docs/verification/2026-11-10-windows/RESULTS.md)
-include functional checks, fuzz runs, allocations and measurement limits.
+**New workflow status:** pinned Git review, shadow mode and Markdown/evidence-pack
+exports are implemented and compile, but await manual verification. No new test
+results are claimed. Earlier [recorded results](docs/VERIFICATION.md) apply to their
+identified November 10 source commits, not this extension.
 
-## Try it
+## Start locally
 
-Build with **Go 1.25.5+**. The commands below use Windows; on Linux build
-`-o vanguard` and run `./vanguard`. Published releases may lag this branch.
+No AI account, API key, hosted service or database is required. Build with
+Go 1.25.5+; the pinned-review command also needs Git 2.45+. On Linux use `-o vanguard`
+and `./vanguard` instead of the Windows commands below.
 
-```sh
-go build -o vanguard.exe ./cmd/vanguard
-./vanguard.exe                                     # Local UI
-./vanguard.exe -p policy.yaml -json testdata/report-fail.json
-./vanguard.exe compare -base testdata/impact/base.yaml -candidate testdata/impact/candidate.yaml testdata/impact/reports
+```powershell
+go build -trimpath -o vanguard.exe ./cmd/vanguard
+.\vanguard.exe                                   # Local UI
+.\vanguard.exe -p policy.yaml -json testdata/report-fail.json
+$baseline = (git rev-parse HEAD).Trim()
+.\vanguard.exe review -base-ref $baseline -base-policy testdata/impact/base.yaml -candidate testdata/impact/candidate.yaml testdata/impact/reports
 ```
 
-**Why compare policies?** The bundled example passes two reports under each policy,
-but a critical finding becomes allowed while a high finding becomes disallowed.
-Vanguard identifies both transitions and flags the relaxed critical limit for review.
-See the [reproducible walkthrough](examples/policy-review.md).
+The review example compares the same four reports under two policies. Both pass
+two reports, but a critical finding becomes permitted while a high finding becomes
+rejected. Expected review exit: `1`. See the [manual walkthrough](docs/MANUAL-REVIEW.md).
+Published portable binaries may lag this source version.
 
-## Architecture
+## How it works
 
 ```mermaid
 flowchart LR
-    A[CLI or local UI] --> B[Validate normalized reports + policies]
-    B --> C[Shared threshold evaluator]
-    C --> D[Decision + exact-byte hashes]
-    C --> E[Compare current vs proposed policy]
-    E --> F[Limit changes + verdict transitions]
-    D --> G[CLI output / UI export]
-    F --> G
+    A[Normalized reports] --> C[Deterministic evaluator]
+    B[Current and proposed policies] --> C
+    G[Optional pinned Git baseline] --> C
+    C --> D[Decisions and policy impact]
+    D --> E[JSON, Markdown and evidence pack]
 ```
 
-- Equality passes; exceeding a limit fails. Omitted limits and `-1` are unlimited.
-- Comparison flags **any relaxed limit**, even when sample verdicts do not change.
-  It explains effects on supplied reports; it does not approve a policy.
-- Strict schemas reject unknown fields/severities, duplicate findings and ambiguous
-  JSON keys. Reports: 16 MiB each; policies: 1 MiB each. CLI comparison: 1–32 reports,
-  64 MiB total, one file or a nonrecursive directory. UI comparison: one report.
-- JSON exports identify exact input bytes with SHA256. Hashes do not prove authenticity.
+- Equality passes; exceeding a finite limit fails. Omitted limits and `-1` are unlimited.
+- Comparison flags any relaxed limit, including changes that no sample exercises.
+- `review` reads the baseline from an exact local commit; it does not fetch, check
+  out or execute candidate code. The operator must choose that commit from a trusted context.
+- Shadow mode records the proposal while retaining the pinned baseline's gate status.
+- A new optional pack contains the readable review, paired decisions, policy
+  snapshots and a hash manifest. It does not copy report contents or overwrite an existing pack.
+- Inputs are bounded: 1 MiB/policy, 16 MiB/report, 32 reports and 64 MiB/corpus.
+  Unknown fields/severities, duplicate findings and ambiguous JSON keys are rejected.
 
-| Exit | Evaluation | Policy comparison |
-| --- | --- | --- |
-| `0` | PASS | No effective limit relaxed |
-| `1` | Policy FAIL | Relaxed limit requires review |
-| `2` | Input, configuration or tool/output error | Same |
+| Mode | Exit 0 | Exit 1 | Exit 2 |
+| --- | --- | --- | --- |
+| Evaluation | PASS | Policy FAIL | Input/tool/output error |
+| Compare / review | No relaxed limits | Relaxation needs review | Error |
+| Shadow | All reports pass pinned baseline | Baseline FAIL | Error |
 
-## Workflows and privacy
+Hashes identify exact bytes, not report authenticity or human approval. The same
+inputs produce the same decision facts; timestamps and build metadata can differ.
+The sample corpus does not predict outcomes for unseen reports.
 
-Evaluation supports explicit stdin (`-`). Optional evaluation-only `-notify` uses
-`VANGUARD_SLACK_WEBHOOK`; it sends a failure summary without finding descriptions.
-Delivery failure preserves the verdict. Comparison never sends Slack. See
-[evaluation CI](examples/github-action.yml) and [policy-review CI](examples/github-policy-review.yml).
+## Use and verification
 
-The UI works offline on localhost, with white/black themes and a teal accent.
-It keeps only the current evaluation or comparison in memory; invalid submissions
-clear export. Export before stopping with Ctrl+C. Only guide completion persists;
-theme is a browser cookie. Large uploads may use temporary files.
+The UI runs on localhost with white/black themes. Inputs/evidence stay in its
+session; invalid submissions clear exports. Export before closing with Ctrl+C.
 `VANGUARD_DATA_DIR` overrides the guide directory's parent; nonempty
-`VANGUARD_NO_BROWSER` disables browser opening.
+`VANGUARD_NO_BROWSER` disables browser opening. Explicit stdin (`-`) works for
+ordinary evaluation. Optional `-notify` sends a failure summary through the user's
+Slack webhook; compare/review/shadow never notify. Jira and AI APIs are not implemented.
 
-```sh
-go test -race -count=1 ./...
-go vet ./...
-python .github/scripts/smoke.py ./vanguard.exe
-```
+[Policy review and trust boundary](docs/POLICY-REVIEW.md) ·
+[Manual acceptance and screenshots](docs/MANUAL-REVIEW.md) ·
+[Architecture](architecture.md) · [Interview guide](interviewprep.md) ·
+[Running costs and optional AI](docs/USAGE-AND-COST.md)
 
-To reproduce the full report: `python .github/scripts/verify.py --output tmp/verification-review`.
-Tests use synthetic data and mocked Slack. [Testing/manual checklist](TESTING.md) ·
-[Architecture](architecture.md) · [Interview guide](interviewprep.md)
+An unexecuted [trusted-baseline CI template](examples/github-trusted-policy-review.yml)
+keeps the tool/corpus on base code and reads the candidate policy as data. It needs
+manual verification and protected workflow settings before use. Existing automated
+verification commands remain in [TESTING.md](TESTING.md); execution of tests and CI
+for this extension is deferred to the owner. No new benchmark or coverage claim is made.

@@ -5,6 +5,7 @@ import (
 	"github.com/theprideofwolves/vanguard/internal/desktop"
 	"github.com/theprideofwolves/vanguard/internal/gate"
 	"github.com/theprideofwolves/vanguard/internal/onboarding"
+	"github.com/theprideofwolves/vanguard/internal/review"
 	"html/template"
 	"io"
 	"net/http"
@@ -48,6 +49,16 @@ func newUIAt(token, dir string) http.Handler {
 		mu.Lock()
 		defer mu.Unlock()
 		message := ""
+		if r.URL.Path == "/export.md" {
+			if r.Method != "GET" || impact == nil {
+				http.Error(w, "Compare policies first", 400)
+				return
+			}
+			w.Header().Set("Content-Type", "text/markdown; charset=utf-8")
+			w.Header().Set("Content-Disposition", "attachment; filename=vanguard-policy-review.md")
+			io.WriteString(w, review.MarkdownImpact(impact))
+			return
+		}
 		if r.URL.Path == "/export" {
 			if r.Method != "GET" || (decision == nil && impact == nil) {
 				http.Error(w, "Evaluate a report first", 400)
@@ -194,12 +205,16 @@ const vanguardHTML = `<!doctype html>
 <p>Current policy: {{.Impact.BasePolicyName}} · Proposed policy: {{.Impact.CandidatePolicyName}}</p>
 <small>Current policy SHA256: {{.Impact.BasePolicyHash}}<br>Proposed policy SHA256: {{.Impact.CandidatePolicyHash}}</small>
 <p><a href="/export?token={{.Token}}">Download policy impact JSON</a></p>
+<p><a href="/export.md?token={{.Token}}">Download readable review (Markdown)</a></p>
+<small>This browser comparison uses supplied policies. Use the CLI review command for a pinned Git baseline and shadow mode.</small>
 </section>{{end}}<details>
 <summary>CLI and CI usage</summary>
 <pre>vanguard -p policy.yaml -json report.json</pre>
 <pre>vanguard compare -base current.yaml -candidate proposed.yaml -json reports/</pre>
+<pre>vanguard review -base-ref FULL_COMMIT -candidate proposed.yaml -mode shadow reports/</pre>
 <p>Comparison exits: 0 no relaxed limits; 1 relaxed limits require review; 2 tool/input/output failure. Comparison never sends Slack.</p>
-<p>Exit 0: pass. Exit 1: policy violation. Exit 2: tool/input/output failure. Optional <code>-notify</code> sends a failure-only Slack summary using VANGUARD_SLACK_WEBHOOK. Slack failure never changes the policy verdict. No source, finding descriptions, or credentials are sent. A run URL can be configured through VANGUARD_RUN_URL.</p>
+<p>Pinned review flags relaxations. Shadow mode records the proposal but returns the pinned baseline gate status. Neither mode sends Slack.</p>
+<p>Evaluation exits: 0 PASS, 1 policy FAIL, 2 tool/input/output failure. Optional <code>-notify</code> sends a failure-only Slack summary using VANGUARD_SLACK_WEBHOOK. Slack failure never changes the policy verdict. No source, finding descriptions, or credentials are sent. A run URL can be configured through VANGUARD_RUN_URL.</p>
 </details>
 </main>
 <footer>Session results are not saved. Export before closing. No internet is required for evaluation. Ctrl+C in the launcher stops the app.</footer>

@@ -1,0 +1,54 @@
+# TEMPLATE ONLY. Not installed as a repository workflow and not executed yet.
+# Copy into a protected workflow after manual verification. Configure required
+# checks/reviews outside this file; a PR-editable workflow is not a trust boundary.
+# Requires the base revision to contain the new `vanguard review` command.
+name: Policy change review
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  policy-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out trusted tool and report corpus
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          persist-credentials: false
+      - name: Check out candidate policy as data only
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: candidate
+          persist-credentials: false
+          sparse-checkout: policy.yaml
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.25.5'
+      - name: Build from base code, never PR code
+        working-directory: trusted
+        run: go build -trimpath -o "$RUNNER_TEMP/vanguard" ./cmd/vanguard
+      - name: Compare against exact base revision
+        shell: bash
+        env:
+          BASE_COMMIT: ${{ github.event.pull_request.base.sha }}
+        run: |
+          set +e
+          "$RUNNER_TEMP/vanguard" review -repo trusted -base-ref "$BASE_COMMIT" -base-policy policy.yaml -candidate candidate/policy.yaml -mode review -output "$RUNNER_TEMP/policy-review" trusted/testdata/impact/reports > "$RUNNER_TEMP/policy-review-stdout.md"
+          code=$?
+          if [ -f "$RUNNER_TEMP/policy-review/manifest.json" ]; then
+            cat "$RUNNER_TEMP/policy-review/review.md" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit "$code"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: policy-review
+          path: ${{ runner.temp }}/policy-review/
+# For shadow operation change only -mode review to -mode shadow. The result then
+# follows the pinned base policy, not the proposal. Do not use `|| true`: input and
+# output failures must remain visible. Replace synthetic reports with an approved
+# corpus/artifact; validate upstream assessment success before invoking Vanguard.

@@ -1,28 +1,27 @@
-# Vanguard v1.3.0 — source release candidate
+# Vanguard v1.4.0 source candidate
 
-Policy-change impact analysis adds review of current/proposed severity limits and
-per-report verdict transitions. It identifies newly passing reports, including
-cases where aggregate PASS counts hide changed admissions. Any effective relaxation
-requires review even if supplied samples show no verdict change.
+Status: new pinned-review functionality is implemented and compilation checked.
+Manual verification is pending. Tests, benchmarks, live integrations and CI were
+not run for this extension, at the owner's request. No binary release is published.
 
-- CLI: `vanguard compare -base current.yaml -candidate proposed.yaml [-json] reports-dir`
-  (or one report file). Exits 0=no relaxed limits, 1=review required, 2=error.
-- UI: compare a proposed policy on the current pasted/uploaded report. Export only
-  the latest valid evaluation or comparison; invalid input clears stale evidence.
-- Evidence: versioned impact JSON, exact-byte policy/report hashes, ordered limit
-  changes and paired ordinary decisions. Omitted/-1 limits compare as unlimited.
-- Resources: 32 reports / 64 MiB corpus, 16 MiB per report, 1 MiB per policy.
-- Existing evaluation/stdin/0-1-2 exits and failure-only CLI Slack are preserved.
-  Comparison never sends Slack. White and true-black themes share a teal accent.
+- `review` loads a bounded baseline policy from an exact local Git commit/blob.
+  It does not fetch, check out or execute candidate code. Commit trust is supplied
+  by the operator/CI context, not established through hashing alone.
+- Review mode flags effective relaxations; shadow mode preserves the pinned
+  baseline's PASS/FAIL across supplied reports while showing candidate outcomes.
+- JSON/Markdown and an optional new-directory evidence pack carry source context,
+  paired decisions, policy snapshots, report hashes and artifact checksums.
+- Ordinary compare and UI comparisons can export readable Markdown, explicitly
+  labeled as supplied policies without pinned-Git provenance.
+- The evaluator, original exit contracts, resource caps and failure-only CLI
+  Slack scope are retained. New review/shadow workflows cannot send Slack.
+- No AI dependency, provider account, database, hosted service or API-key field.
 
-Portable packaging includes policy/report fixtures, the four-report impact demo,
-CI step fragments, testing instructions and interview/architecture notes. The
-workflow is configured for Windows/Linux; local verification is Windows unless
-TESTING-NOTES.md records otherwise. Builds are unsigned.
+The new CI file is a template under examples, not an installed workflow. Existing
+CI configuration remains available for later verification. This publication uses
+[skip ci] and creates no release tag. Historical November 10 measurements remain
+scoped to the commits recorded with them and do not verify this candidate.
 
-No binary release is published by these source changes. Recorded verification is
-linked from README.md; raw evidence and methodology are included under docs/. Unit/integration/race/fuzz and
-packaged smoke checks provide bounded evidence, not exhaustive coverage or proof
-of enterprise readiness. Human UI/accessibility, clean-machine launch, live Slack
-and sustained performance remain separate checks. Vanguard is a normalized policy
-gate and review aid; it does not scan, approve policy changes or certify compliance.
+Start with docs/MANUAL-REVIEW.md and record actual results before marking the new
+workflow verified. Portable packaging includes the new guides/template when a
+future explicit release is requested; builds remain unsigned.

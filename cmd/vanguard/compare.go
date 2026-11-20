@@ -10,6 +10,7 @@ import (
 	"strings"
 
 	"github.com/theprideofwolves/vanguard/internal/gate"
+	"github.com/theprideofwolves/vanguard/internal/review"
 )
 
 func readBoundedFile(path string, limit int64) ([]byte, error) {
@@ -85,8 +86,9 @@ func runCompare(args []string, out, errOut io.Writer) int {
 	basePath := fs.String("base", "", "Current YAML policy path (required)")
 	candidatePath := fs.String("candidate", "", "Proposed YAML policy path (required)")
 	asJSON := fs.Bool("json", false, "Machine-readable policy impact on stdout")
+	asMarkdown := fs.Bool("markdown", false, "Human-readable comparison on stdout (no Git provenance)")
 	fs.Usage = func() {
-		fmt.Fprintln(errOut, "Usage: vanguard compare -base current.yaml -candidate proposed.yaml [-json] report.json|reports-dir\nExits: 0 no relaxed limits, 1 review required, 2 error. No Slack notifications.")
+		fmt.Fprintln(errOut, "Usage: vanguard compare -base current.yaml -candidate proposed.yaml [-json|-markdown] report.json|reports-dir\nExits: 0 no relaxed limits, 1 review required, 2 error. No Slack notifications.")
 		fs.PrintDefaults()
 	}
 	if err := fs.Parse(args); err != nil {
@@ -96,7 +98,11 @@ func runCompare(args []string, out, errOut io.Writer) int {
 		return 2
 	}
 	if *basePath == "" || *candidatePath == "" || fs.NArg() != 1 {
-		fmt.Fprintln(errOut, "usage: vanguard compare -base current.yaml -candidate proposed.yaml [-json] report.json|reports-dir")
+		fmt.Fprintln(errOut, "usage: vanguard compare -base current.yaml -candidate proposed.yaml [-json|-markdown] report.json|reports-dir")
+		return 2
+	}
+	if *asJSON && *asMarkdown {
+		fmt.Fprintln(errOut, "choose -json or -markdown, not both")
 		return 2
 	}
 	base, err := readBoundedFile(*basePath, 1<<20)
@@ -121,6 +127,8 @@ func runCompare(args []string, out, errOut io.Writer) int {
 	}
 	if *asJSON {
 		err = json.NewEncoder(out).Encode(impact)
+	} else if *asMarkdown {
+		_, err = io.WriteString(out, review.MarkdownImpact(impact))
 	} else {
 		err = writeImpact(out, impact)
 	}

@@ -1,3 +1,12 @@
+# v1.4.0 (source candidate; manual verification pending)
+
+Added exact-commit Git baseline review, shadow evaluation that preserves the
+baseline gate, readable Markdown and a new-directory evidence pack with hashes.
+UI comparisons can download a readable review without claiming Git provenance.
+Added an unexecuted trusted-baseline CI template and manual evidence checklist.
+No AI API or paid-service dependency. Only formatting/compilation checked;
+new tests, benchmarks and live integration results are not claimed.
+
 # v1.3.0 (source update; binary release pending)
 
 Added reproducible verification reports with whole-project coverage, seeded
